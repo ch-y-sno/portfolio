@@ -69,6 +69,14 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # 必要なNode.jsのバージョンに変更するカ
+
+      - name: Install dependencies
+        run: yarn install
+
       - name: Run tests
         env:
           RAILS_ENV: test
