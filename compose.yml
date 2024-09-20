@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:16.4
@@ -9,25 +7,25 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
   web:
-    build: .
-      # context: .
+    build:
+      context: .
       # rails newで生成されたproduction用のDockerfileではなく開発用のDockerfile.devlopmentを参照
-      # dockerfile: Dockerfile.development
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    # command: bash -c "rm -f tmp/pids/server.pid && bin/dev"
+      dockerfile: Dockerfile.development
+    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bin/dev"
     depends_on:
       - db
     environment:
-      # BINDING: 0.0.0.0
+      BINDING: 0.0.0.0
       POSTGRES_USER: user01
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "3000:3000"
     volumes:
       - .:/portfolio
-      # - bundle:/usr/local/bundle
-    # tty: true
-    # stdin_open: true
+      - bundle:/usr/local/bundle
+    tty: true
+    stdin_open: true
   adminer:
     image: adminer
     restart: always
@@ -35,4 +33,4 @@ services:
       - 8080:8080
 volumes:
   db-data:
-# bundle:
+  bundle:
