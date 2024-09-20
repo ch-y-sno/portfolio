@@ -1,0 +1,29 @@
+<% content_for(:title) %>
+
+<div class="flex font-sans w-full">
+  <div class="flex-auto p-6 w-1/2">
+    <div class="flex flex-wrap">
+      <div class="w-full flex-none text-sm font-medium text-slate-700 mt-10 p-10">
+        この文章はダミーです。
+        文字の大きさ、量、字間、行間等を
+        確認するために入れています。
+      </div>
+    </div>
+    <div class="flex space-x-4 mb-6 text-sm font-medium">
+      <div class="flex-auto flex space-x-6 place-content-center">
+        <button class="h-10 px-6 font-semibold rounded-md bg-teal-500 text-white" type="submit">
+          ログイン
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="flex-none relative w-1/2">
+    <%= image_tag 'jisca-lucia-vVrDHc8Nf94-unsplash.jpg', class: "absolute w-full h-full inset-0 object-cover", loading: "lazy" %>
+    
+    <button class="absolute inset bottom-[-30px] right-0 flex-none flex items-center justify-center w-9 h-9 rounded-md text-slate-300" type="button" aria-label="Like">
+      <svg width="20" height="20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+      </svg>
+    </button>   
+  </div>
+</div>
