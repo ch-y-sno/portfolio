@@ -60,3 +60,5 @@ end
 gem "tailwindcss-rails", "~> 2.7"
 
 gem "dartsass-rails", "~> 0.5.1"
+
+gem 'font-awesome-sass'

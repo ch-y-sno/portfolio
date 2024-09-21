@@ -1,6 +1,8 @@
+@import '@fortawesome/fontawesome-free';
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
 
 /*
 

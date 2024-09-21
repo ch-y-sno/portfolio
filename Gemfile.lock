@@ -103,6 +103,10 @@ GEM
       reline (>= 0.3.8)
     drb (2.2.1)
     erubi (1.13.0)
+    ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-x86_64-linux-gnu)
+    font-awesome-sass (6.5.2)
+      sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-protobuf (4.28.2-aarch64-linux)
@@ -242,6 +246,8 @@ GEM
       google-protobuf (~> 4.27)
     sass-embedded (1.79.2-x86_64-linux-gnu)
       google-protobuf (~> 4.27)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     securerandom (0.3.1)
     selenium-webdriver (4.24.0)
       base64 (~> 0.2)
@@ -296,6 +302,7 @@ DEPENDENCIES
   capybara
   dartsass-rails (~> 0.5.1)
   debug
+  font-awesome-sass
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
