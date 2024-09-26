@@ -1,5 +1,7 @@
 <%= form_with model: @user do |f| %>
-  <p class="text-black dark:text-white">アカウントをお持ちの場合は<%= link_to 'こちら', login_path, class: "text-teal-500 hover:underline dark:text-teal-400" %></p>
+  <div class="text-black dark:text-white">
+    <%= t('.have_account_already') %><%= link_to t('.to_login_page'), login_path, class: "text-teal-500 hover:underline dark:text-teal-400" %>
+  </div>
   <div class="grid gap-6 mb-6 md:grid-cols-2">
     <div>
       <%= f.label :last_name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
@@ -16,15 +18,15 @@
   </div>
   <div class="mb-6">
     <%= f.label :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-    <%= f.email_field :email, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500", placeholder: "email@example.com" %>
+    <%= f.email_field :email, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500", placeholder: t('activerecord.attributes.user.email_placeholder') %>
   </div>
   <div class="mb-6">
     <%= f.label :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-    <%= f.password_field :password, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500", placeholder: "********" %>
+    <%= f.password_field :password, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500", placeholder: t('activerecord.attributes.user.password_placeholder') %>
   </div>
   <div class="mb-6">
     <%= f.label :password_confirmation, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-    <%= f.password_field :password_confirmation, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500", placeholder: "********" %>
+    <%= f.password_field :password_confirmation, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500", placeholder: t('activerecord.attributes.user.password_placeholder') %>
   </div>
     <%# プライバシーポリシーページ作成後修正
       <div class="flex items-start mb-6">
@@ -33,5 +35,5 @@
         </div>
         <%= f.label class: "ms-2 text-sm font-medium text-gray-900 dark:text-gray-300" value: "I agree with the <%= href="#" class="text-teal-600 hover:underline dark:text-teal-500">terms and conditions</a>.</label>
       </div> %>
-  <%= f.submit "新規登録", class: "text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+  <%= f.submit t('.create'), class: "text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
 <% end %>

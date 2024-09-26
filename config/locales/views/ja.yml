@@ -1,0 +1,35 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  home:
+    top:
+      login: ログイン
+      text: この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+      not_registered_yet: アカウントをお持ちでない場合
+      to_register_page: 新規作成する
+      forget_password: パスワードをお忘れですか？
+  users:
+    new:
+      title: ユーザー登録
+      create: 新規登録
+      have_account_already: アカウントをお持ちの場合は
+      to_login_page: こちら
+  header:
+    login: ログイン
+    logout: ログアウト
+    app_name: app_name
+    board: 掲示板
+    board_index: 掲示板一覧
+    create_board: 掲示板作成
+    bookmark_index: ブックマーク一覧
+    profile: プロフィール
