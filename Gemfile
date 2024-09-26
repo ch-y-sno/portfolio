@@ -60,3 +60,13 @@ end
 gem "tailwindcss-rails", "~> 2.7"
 
 gem "dartsass-rails", "~> 0.5.1"
+
+gem "font-awesome-sass"
+
+gem "sorcery", "0.16.3"
+
+gem "ruby-lsp"
+
+gem "rubocop"
+
+gem "htmlbeautifier"
