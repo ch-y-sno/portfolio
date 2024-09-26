@@ -1,0 +1,7 @@
+<% flash.each do |message_type, message| %>
+  <div class="<%= flash_color(message_type) %> p-4 mb-4 text-sm rounded-lg dark:bg-gray-800">
+    <%= message %>
+  </div>
+<% end %>
+
+

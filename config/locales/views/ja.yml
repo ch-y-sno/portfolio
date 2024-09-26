@@ -18,12 +18,20 @@ ja:
       not_registered_yet: アカウントをお持ちでない場合
       to_register_page: 新規作成する
       forget_password: パスワードをお忘れですか？
+    create:
+      success: ログインしました
+      fail: ログインに失敗しました
+
   users:
     new:
       title: ユーザー登録
       create: 新規登録
       have_account_already: アカウントをお持ちの場合は
       to_login_page: こちら
+    create:
+      success: ユーザー登録が完了しました
+      fail: ユーザー登録に失敗しました
+
   header:
     login: ログイン
     logout: ログアウト
