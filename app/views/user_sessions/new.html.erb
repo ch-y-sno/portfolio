@@ -1,0 +1,17 @@
+<%= form_with url: login_path, class: "space-y-4" do |f| %>
+  <div>
+    <%= f.label :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= f.email_field :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white", placeholder: "email@example.com" %>
+  </div>
+  <div>
+    <%= f.label :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= f.password_field :password, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white", placeholder: "********" %>
+  </div>
+  <div class="flex justify-between">
+    <%= link_to "パスワードをお忘れですか？", "#", class: "text-sm text-teal-500 hover:underline dark:text-teal-500" %>
+  </div>
+  <%= f.submit "ログイン", class: "w-full text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm px-12 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+  <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+    アカウントをお持ちでない場合 <%= link_to "新規作成する", new_user_path, class: "text-teal-500 hover:underline dark:text-teal-400" %>
+  </div>
+<% end %>
