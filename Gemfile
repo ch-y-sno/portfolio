@@ -72,3 +72,5 @@ gem "rubocop"
 gem "htmlbeautifier"
 
 gem "rails-i18n", "~> 7.0.0"
+
+gem "draper", "4.0.2"

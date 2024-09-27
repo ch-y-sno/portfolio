@@ -11,7 +11,7 @@
         <%= link_to t('.login'), new_user_path, class: "h-10 px-12 flex items-center justify-center font-semibold rounded-md bg-teal-300 text-white" %>
       </div>
       <!-- Modal toggle -->
-      <%= link_to t('.login'), "#", data: { modal_target: "authentication-modal", modal_toggle: "authentication-modal" }, class: "block text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm px-12 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+      <%= link_to t('.login'), "#", data: { turbo: false, modal_target: "authentication-modal", modal_toggle: "authentication-modal" }, class: "block text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm px-12 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
     </div>
   </div>
   <div class="flex-none relative w-1/2">
@@ -25,6 +25,7 @@
 </div>
 
 <!-- Main modal -->
+<%= tag.turbo_frame(id: :modal) do %>
 <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
   <div class="relative p-4 w-full max-w-md max-h-full">
     <!-- Modal content -->
@@ -43,7 +44,7 @@
       </div>
       <!-- Modal body -->
       <div class="p-4 md:p-5">
-        <%= form_with url: login_path, class: "space-y-4" do |f| %>
+        <%= form_with url: login_path, class: "space-y-4", data: { turbo: false } do |f| %>
           <div>
             <%= f.label :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
             <%= f.email_field :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white", placeholder: t('activerecord.attributes.user.email_placeholder') %>
@@ -64,3 +65,4 @@
     </div>
   </div>
 </div>
+<% end %>

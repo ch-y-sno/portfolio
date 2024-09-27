@@ -21,6 +21,8 @@ ja:
     create:
       success: ログインしました
       fail: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
 
   users:
     new:
@@ -41,3 +43,6 @@ ja:
     create_board: 掲示板作成
     bookmark_index: ブックマーク一覧
     profile: プロフィール
+
+  error:
+    please_confirm: 以下についてご確認ください
