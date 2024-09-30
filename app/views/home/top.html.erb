@@ -10,7 +10,6 @@
       <div class="space-x-6">
         <%#  <%= link_to t('.login'), new_user_path, class: "h-10 px-12 flex items-center justify-center font-semibold rounded-md bg-teal-300 text-white" %>
       </div>
-      %>
       <% unless logged_in? %>
         <!-- Modal toggle -->
         <%= link_to t('.login'), "#", data: { turbo: false, modal_target: "authentication-modal", modal_toggle: "authentication-modal" }, class: "block text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm px-20 py-3 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>

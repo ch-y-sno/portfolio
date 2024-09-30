@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root "home#top"
 
-  resources :users, only: %i[new create update destroy]
+  resources :users, only: %i[new create update destroy show]
 
   get "login" => "user_sessions#new", :as => :login
   post "login" => "user_sessions#create"
   delete "logout" => "user_sessions#destroy", :as => :logout
+
+  resource :profile, only: %i[show update edit]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

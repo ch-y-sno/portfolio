@@ -12,3 +12,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         password_placeholder: "********"
+        full_name: 氏名
+        age: 年齢
+        gender: 性別
+        bio: 自己紹介

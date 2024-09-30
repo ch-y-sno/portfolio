@@ -1,0 +1,65 @@
+<% content_for(:title, t('.title')) %>
+<div class="bg-white w-full flex flex-col gap-5 px-3 md:px-16 lg:px-28 md:flex-row dark:bg-gray-900">
+  <%= render 'shared/sidebar' %>
+  <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
+    <%= form_with model: @user, url: profile_path, method: :put do |f| %>
+      <div>
+        <%= render 'shared/error_messages', object: f.object %>
+      </div>
+      <div class="p-2 md:p-4">
+        <div class="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
+          <div class="grid max-w-2xl mx-auto mt-8">
+            <div class="flex flex-col justify-center items-center space-y-5 sm:flex-row sm:space-y-0">
+              <%= image_tag @user.avatar.url,
+                              class: 'object-cover w-50 h-50 p-1 rounded-full ring-2 ring-teal-500 dark:ring-teal-400',
+                              id: 'preview',
+                              size: '200x200' %>
+              <div class="flex flex-col space-y-5 sm:ml-8">
+                <%= f.label :avatar, t('.file_field_label'), class:'py-3.5 px-7 text-base font-medium text-indigo-100 focus:outline-none bg-teal-400 rounded-lg border border-indigo-200 hover:bg-indigo-500 focus:z-10 focus:ring-4 focus:ring-teal-200' %>
+                <%= f.file_field :avatar, class: "hidden", accept: 'image/*' %>
+                <%= f.hidden_field :avatar_cache %>
+              </div>
+            </div>
+            <div class="items-center mt-8 sm:mt-14">
+              <div class="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">
+                <div class="w-full h-full">
+                  <%= f.label :last_name, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>
+                  <%= f.text_field :last_name, class: "bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" %>
+                </div>
+                <div class="w-full h-full">
+                  <%= f.label :first_name, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>
+                  <%= f.text_field :first_name, class: "bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" %>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-6">
+                <%= f.label :nickname, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>
+                <%= f.text_field :nickname, class: "bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" %>
+              </div>
+              <div class="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">
+                <div class="w-full h-full">
+                  <%= f.label :age, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>
+                  <%= f.text_field :age, class: "bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" %>
+                </div>
+                <div class="w-full h-full">
+                  <%= f.label :gender, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>
+                  <%= f.text_field :gender, class: "bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" %>
+                </div>
+              </div>
+              <div class="mb-2 sm:mb-6">
+                <%= f.label :email, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>
+                <%= f.text_field :email, class: "bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" %>
+              </div>
+              <div class="mb-6">
+                <%= f.label :bio, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>
+                <%= f.text_area :bio, class: "block p-2.5 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg border border-indigo-300 focus:ring-indigo-500 focus:border-indigo-500" %>
+              </div>
+              <div class="flex justify-center items-center flex-col space-y-5 sm:ml-8">
+                <%= f.submit class: "block flex justify-center items-center text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm px-20 py-3 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

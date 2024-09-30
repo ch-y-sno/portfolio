@@ -5,7 +5,7 @@
       <%= link_to root_path, class: "self-left text-2xl font-semibold whitespace-nowrap dark:text-white", alt: "camera icon" do %>
         <i class="fa-solid fa-camera-retro"></i>
       <% end %>
-      <span class="self-left text-2xl font-semibold whitespace-nowrap dark:text-white">app_name</span>
+      <span class="self-left text-2xl font-semibold whitespace-nowrap dark:text-white"><%= t('header.app_name') %></span>
       <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
           <span class="sr-only">Open user menu</span>
@@ -22,10 +22,7 @@
           </div>
           <ul class="py-2" aria-labelledby="user-menu-button">
             <li>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">基本情報</a>
-            </li>
-            <li>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">プロフィール</a>
+              <%= link_to t('header.user_info'), profile_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
             </li>
             <li>
               <%= link_to t('header.logout'), logout_path, method: :delete, data: { turbo_method: :delete}, class: "block px-4 py-2 text-sm text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-red-400 dark:hover:text-red-300" %>
