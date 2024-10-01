@@ -5,7 +5,7 @@
       <%= link_to root_path, class: "self-left text-2xl font-semibold whitespace-nowrap dark:text-white", alt: "camera icon" do %>
         <i class="fa-solid fa-camera-retro"></i>
       <% end %>
-      <span class="self-left text-2xl font-semibold whitespace-nowrap dark:text-white">app_name</span>
+      <span class="self-left text-2xl font-semibold whitespace-nowrap dark:text-white"><%= t('header.app_name') %></span>
       
         <%= button_tag onclick: "toggleDarkMode()", class: "p-6 text-2xl text-black dark:text-white" do %>
           <i class="fa-solid fa-moon"></i>
@@ -22,3 +22,4 @@
     </div>
   </nav>
 </header>
+

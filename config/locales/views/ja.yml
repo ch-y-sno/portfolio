@@ -1,0 +1,72 @@
+ja:
+  helpers:
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+    label:
+      email: メールアドレス
+      password: パスワード
+
+  defaults:
+    delete_confirm: 削除しますか？
+    flash_message:
+      profile_updated: "プロフィールを更新しました"
+      profile_not_updated: "プロフィールを更新できませんでした"
+
+  home:
+    top:
+      login: ログイン
+      text: この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+      not_registered_yet: アカウントをお持ちでない場合
+      to_register_page: 新規作成する
+      forget_password: パスワードをお忘れですか？
+    create:
+      success: ログインしました
+      fail: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
+
+  users:
+    new:
+      title: ユーザー登録
+      create: 新規登録
+      have_account_already: アカウントをお持ちの場合は
+      to_login_page: こちら
+    create:
+      success: ユーザー登録が完了しました
+      fail: ユーザー登録に失敗しました
+  
+  profiles:
+    show:
+      to_edit_page: 編集する
+    edit:
+      file_field_label: 画像をアップロード
+
+  header:
+    login: ログイン
+    logout: ログアウト
+    app_name: app_name
+    board: 掲示板
+    board_index: 掲示板一覧
+    create_board: 掲示板作成
+    bookmark_index: ブックマーク一覧
+    profile: プロフィール
+    user_info: ユーザー情報
+
+  footer:
+    app_name: app_name
+    privacy_policy: プライバシーポリシー
+    contact: お問い合わせ
+
+  sidebar:
+    to_profile_page: プロフィール
+    to_delete_account_page: アカウント削除
+
+  error:
+    please_confirm: 以下についてご確認ください
