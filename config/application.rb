@@ -24,6 +24,7 @@ module Portfolio
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :ja
+    config.time_zone = "Tokyo"
     config.autoload_paths += Dir[Rails.root.join("app", "uploaders")]   # carrierwaveでエラー発生のため追記
   end
 end

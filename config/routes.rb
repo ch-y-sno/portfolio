@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "home#top"
 
+  get "home" => "home#index"
+
   resources :users, only: %i[new create update destroy show]
 
   get "login" => "user_sessions#new", :as => :login
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
   delete "logout" => "user_sessions#destroy", :as => :logout
 
   resource :profile, only: %i[show update edit]
+
+  resources :articles, only: %i[index]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

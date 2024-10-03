@@ -1,0 +1,12 @@
+<% content_for(:title, t('.title')) %>
+  <%= render 'shared/search' %>
+  <%# 過去の記事のギャラリー表示　%>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <% if @articles.present? %>    
+      <%= render partial: 'articles/article_wo_fullname', collection: @articles %>  
+    <% else %>
+      <div class="mb-3">過去の投稿がありません</div>
+    <% end %>
+  </div>
+
+

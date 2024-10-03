@@ -36,7 +36,7 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :topics, dependent: :destroy
   has_one :team_leader, dependent: :destroy
-  belongs_to :team
+  belongs_to :team, optional: true
 
   mount_uploader :avatar, AvatarUploader
 end

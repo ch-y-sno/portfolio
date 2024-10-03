@@ -11,8 +11,9 @@ ja:
   defaults:
     delete_confirm: 削除しますか？
     flash_message:
-      profile_updated: "プロフィールを更新しました"
-      profile_not_updated: "プロフィールを更新できませんでした"
+      profile_updated: プロフィールを更新しました
+      profile_not_updated: プロフィールを更新できませんでした
+      require_login: ログインしてください
 
   home:
     top:

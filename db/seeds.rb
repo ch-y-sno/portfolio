@@ -8,10 +8,18 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-@user = User.create(
-    first_name: "first",
-    last_name: "last",
-    nickname: "nickname",
-    email: "test@example.com",
-    password: "testpassword"
-  )
+5.times do
+  User.create!(last_name: Faker::Name.last_name,
+              first_name: Faker::Name.first_name,
+              nickname: Faker::TvShows::Friends.character,
+              email: Faker::Internet.unique.email,
+              password: "password",
+              password_confirmation: "password")
+end
+
+user_ids = User.ids
+
+10.times do |index|
+  user = User.find(user_ids.sample)
+  user.articles.create!(caption: "キャプションです#{index}", image_url: "article_placeholder.png", is_public: 0, is_winner: 0)
+end
