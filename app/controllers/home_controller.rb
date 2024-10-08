@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   def top; end
 
   def index
+    @article = Article.new
     @articles = Article.includes(:user)
   end
 end

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resource :profile, only: %i[show update edit]
 
-  resources :articles, only: %i[index]
+  resources :articles, only: %i[index new create edit update]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

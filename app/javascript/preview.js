@@ -1,5 +1,5 @@
 document.addEventListener('turbo:load', function() {
-  const fileInput = document.getElementById('user_avatar');
+  const fileInput = document.querySelector('input[type="file"]');
   const preview = document.getElementById('preview');
 
   fileInput.addEventListener('change', function() {

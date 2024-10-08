@@ -11,14 +11,16 @@ ja:
   defaults:
     delete_confirm: 削除しますか？
     flash_message:
-      profile_updated: プロフィールを更新しました
-      profile_not_updated: プロフィールを更新できませんでした
+      updated: 更新しました
+      not_updated: 更新に失敗しました
       require_login: ログインしてください
 
   home:
     top:
       login: ログイン
       text: この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+    index:
+      file_field_label: 投稿する
 
   user_sessions:
     new:
@@ -48,6 +50,10 @@ ja:
       to_edit_page: 編集する
     edit:
       file_field_label: 画像をアップロード
+
+  articles:
+    edit:
+      file_field_label: 画像を変更する
 
   header:
     login: ログイン

@@ -24,4 +24,6 @@ class Article < ApplicationRecord
   belongs_to :user
   # will delete optional later on
   belongs_to :topic, optional: true
+
+  mount_uploader :article_image, ArticleImageUploader
 end
