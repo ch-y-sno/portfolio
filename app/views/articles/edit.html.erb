@@ -1,10 +1,10 @@
 <% content_for(:title, t('.title')) %>
 <div class='bg-white w-full flex flex-col gap-5 px-3 md:px-16 lg:px-28 md:flex-row dark:bg-gray-900'>
   <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
-    <div class="grid mx-auto mt-8">
-      <h1><%= "お題を表示" %></h1>
+    <div class="grid mx-auto">
+      <h1 class="text-teal-500 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= "お題を表示" %></h1>
       <% if @article.article_image %>
-        <%= image_tag @article.article_image.url, class: 'block p-2.5 w-full', id: 'preview', size: '400x300' %>
+        <%= image_tag @article.article_image.url, class: 'block w-full', id: 'preview', size: '400x300' %>
       <% end %>    
       <div class="items-center sm:mt-8">        
         <%= form_with model: @article do |f| %>

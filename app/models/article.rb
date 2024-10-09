@@ -24,6 +24,7 @@ class Article < ApplicationRecord
   belongs_to :user
   # will delete optional later on
   belongs_to :topic, optional: true
+  has_many :comments, dependent: :destroy
 
   mount_uploader :article_image, ArticleImageUploader
 end
