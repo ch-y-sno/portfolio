@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(image_params)
     if @article.save
-      redirect_to edit_article_path(@article) #, success: t('defaults.flash_message.created', item: Article.model_name.human)
+      redirect_to edit_article_path(@article) # , success: t('defaults.flash_message.created', item: Article.model_name.human)
     end
   end
 
