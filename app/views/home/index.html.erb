@@ -1,0 +1,9 @@
+<div class='flex flex-col'>
+  <h5 class="text-teal-500 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">ユーザーページ（ログイン後のトップページ）だよ</h5>
+  <%= form_with model: @article, action: :upload_image, local: true, id: 'upload_image' do |f| %>
+    <%= f.label :article_image, t('.file_field_label'), class:'py-3.5 px-7 text-base font-medium text-indigo-100 focus:outline-none bg-teal-400 rounded-lg border border-indigo-200 hover:bg-indigo-500 focus:z-10 focus:ring-4 focus:ring-teal-200' %>
+    <%= f.file_field :article_image, class: "hidden upload_image", accept: 'image/*' %>
+    <%= f.hidden_field :article_image_cache %>
+  <% end %>
+  <%= render 'articles/user_works' %>
+</div>

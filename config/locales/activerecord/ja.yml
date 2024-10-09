@@ -16,3 +16,6 @@ ja:
         age: 年齢
         gender: 性別
         bio: 自己紹介
+
+      article:
+        caption: キャプション

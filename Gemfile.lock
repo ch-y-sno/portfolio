@@ -123,6 +123,8 @@ GEM
       ruby2_keywords
     drb (2.2.1)
     erubi (1.13.0)
+    faker (3.4.2)
+      i18n (>= 1.8.11, < 2)
     faraday (2.12.0)
       faraday-net_http (>= 2.0, < 3.4)
       json
@@ -391,6 +393,7 @@ DEPENDENCIES
   dartsass-rails (~> 0.5.1)
   debug
   draper (= 4.0.2)
+  faker
   font-awesome-sass
   htmlbeautifier
   jbuilder

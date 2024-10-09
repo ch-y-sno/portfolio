@@ -4,3 +4,4 @@ import "./controllers";
 import "@fortawesome/fontawesome-free/js/all";
 import "./darkmode";
 import "./preview";
+import "./upload_image";
