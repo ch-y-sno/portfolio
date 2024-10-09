@@ -65,7 +65,7 @@ gem "dartsass-rails", "~> 0.5.1"
 
 gem "font-awesome-sass"
 
-gem "sorcery", "0.16.3"
+gem "sorcery", "0.17.0"
 
 gem "ruby-lsp"
 
