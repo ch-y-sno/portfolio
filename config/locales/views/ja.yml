@@ -10,6 +10,7 @@ ja:
 
   defaults:
     delete_confirm: 削除しますか？
+    post: 投稿する
     flash_message:
       updated: "%{item}を更新しました"
       not_updated: "%{item}の更新に失敗しました"
