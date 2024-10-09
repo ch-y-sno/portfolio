@@ -2,6 +2,9 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      article: 投稿
+      comment: コメント
+
     attributes:
       user:
         email: メールアドレス
@@ -19,3 +22,6 @@ ja:
 
       article:
         caption: キャプション
+
+      comment:
+        body: コメント

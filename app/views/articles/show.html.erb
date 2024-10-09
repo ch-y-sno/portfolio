@@ -1,0 +1,39 @@
+<% content_for(:title, t('.title')) %>
+<div class='bg-white w-full flex flex-col gap-5 px-3 md:px-16 lg:px-28 md:flex-row dark:bg-gray-900'>
+  <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
+    <div class="grid mx-auto">
+      <h1 class="text-teal-500 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= "お題を表示" %></h1>
+      <%= l @article.created_at, format: :long %>
+      <%= image_tag @article.article_image.url, class: 'block w-full', width: "300", height: "200" %>
+      <%= @article.user.decorate.full_name %>
+      <div class="items-center sm:mt-8">        
+        <div class="mb-2 sm:mb-6">
+          <% if @article.caption %>
+            <textarea disabled rows="4" class="block p-2.5 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 ">
+              <%= @article.caption %>
+            </textarea>
+          <% end %>
+          <div class='d-flex justify-content-end'>
+            <%= link_to edit_article_path(@article), id: "button-edit-#{@article.id}" do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+          <%= link_to "#", id: "button-delete-#{@article.id}", class: "ms-2" do %>
+            <i class="fa-solid fa-trash"></i>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render 'comments/form', comment: @comment, article: @article %>
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <table class="table">
+          <tbody id="table-comment">
+            <%= render @comments %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+

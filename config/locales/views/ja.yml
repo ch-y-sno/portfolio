@@ -11,8 +11,10 @@ ja:
   defaults:
     delete_confirm: 削除しますか？
     flash_message:
-      updated: 更新しました
-      not_updated: 更新に失敗しました
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}の更新に失敗しました"
+      created: "%{item}を作成しました"
+      not_created: "%{item}の作成に失敗しました"
       require_login: ログインしてください
 
   home:

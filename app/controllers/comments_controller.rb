@@ -1,0 +1,16 @@
+class CommentsController < ApplicationController
+  def create
+    comment = current_user.comments.build(comment_params)
+    if comment.save
+      redirect_to article_path(comment.article), success: t("defaults.flash_message.created", item: Comment.model_name.human)
+    else
+      redirect_to article_path(comment.article), danger: t("defaults.flash_message.not_created", item: Comment.model_name.human)
+    end
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:xxxxx).merge(board_id: params[:board_id])
+  end
+end
