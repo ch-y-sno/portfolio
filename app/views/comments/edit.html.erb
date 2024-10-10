@@ -1,0 +1,18 @@
+<%= turbo_frame_tag dom_id(@comment) do %>
+  <div class="flex items-start gap-2.5 mb-2">
+    <%= image_tag "avatar_placeholder", class: "w-8 h-8 rounded-full" %>
+    <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+      <div class="flex items-center space-x-2 rtl:space-x-reverse">
+        <span class="text-sm font-semibold text-gray-900 dark:text-white"><%= @comment.user.decorate.full_name %></span>
+        <span class="text-sm font-normal text-gray-500 dark:text-gray-400"><%= l @comment.created_at, format: :long %></span>
+      </div>
+      <%= form_with model: @comment, class: "max-w-sm" do |f| %>
+        <%= f.text_area :body, class: "w-full text-sm font-normal py-2.5 text-gray-900 dark:text-white" %>
+        <div class="grid my-2 gap-2.5 md:grid-cols-2">
+          <%= link_to t('defaults.cancel'), article_path(@comment.article), class: "block flex justify-center items-center py-2 text-white bg-gray-400 hover:bg-gray-500 focus:outline-none font-medium rounded-lg text-sm text-center dark:bg-gray-400 dark:hover:bg-gray-500" %>
+          <%= f.submit t('defaults.post'), class: "block flex justify-center items-center py-2 text-white bg-teal-400 hover:bg-teal-600 focus:outline-none font-medium rounded-lg text-sm text-center dark:bg-teal-400 dark:hover:bg-teal-600" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

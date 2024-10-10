@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show update edit]
 
   resources :articles, only: %i[index new create edit update show destroy] do
-    resources :comments, only: %i[create edit destroy], shallow: true
+    resources :comments, only: %i[create edit destroy update], shallow: true
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

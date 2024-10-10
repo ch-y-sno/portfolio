@@ -9,6 +9,19 @@ class CommentsController < ApplicationController
     @comment.destroy!
   end
 
+  def edit
+    @comment = current_user.comments.find(params[:id])
+  end
+
+  def update
+    @comment = current_user.comments.find(params[:id])
+    if @comment.update(comment_params.merge(article_id: @comment.article_id))
+      redirect_to article_path(@comment.article)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def comment_params

@@ -11,6 +11,7 @@ ja:
   defaults:
     delete_confirm: 削除しますか？
     post: 投稿する
+    cancel: キャンセル
     flash_message:
       updated: "%{item}を更新しました"
       not_updated: "%{item}の更新に失敗しました"
@@ -59,8 +60,10 @@ ja:
       file_field_label: 画像を変更する
     
   comments:
-    edit: 編集
-    destroy: 削除
+    edit:
+      edit: 編集
+    destroy: 
+      destroy: 削除
 
   header:
     login: ログイン
