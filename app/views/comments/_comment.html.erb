@@ -6,9 +6,9 @@
         <span class="text-sm font-semibold text-gray-900 dark:text-white"><%= comment.user.decorate.full_name %></span>
         <span class="text-sm font-normal text-gray-500 dark:text-gray-400"><%= l comment.created_at, format: :long %></span>
       </div>
-      <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
+      <div class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
         <%= simple_format(comment.body) %>
-      </p>
+      </div>
     </div>
     <% if current_user.own?(comment) %>
       <button id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots-<%= comment.id %>" data-dropdown-placement="bottom-start" class="inline-flex self-center items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 dark:focus:ring-gray-600" type="button">
@@ -22,7 +22,7 @@
             <%= link_to t('.edit'), edit_comment_path(comment), class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
           </li>
           <li>
-            <%= link_to t('.destroy'), comment_path(comment), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            <%= link_to t('.destroy'), comment_path(comment), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "block px-4 py-2 text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
           </li>
         </ul>
       </div>

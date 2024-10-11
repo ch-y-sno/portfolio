@@ -3,12 +3,16 @@
   <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
     <div class="grid mx-auto">
       <h1 class="text-teal-500 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= "お題を表示" %></h1>
-      <%= l @article.created_at, format: :long %>
+      <div class="text-gray-900 dark:text-white">
+        <%= l @article.created_at, format: :long %>
+      </div>
       <%= form_with model: @article do |f| %>
         <%= image_tag @article.article_image.url, class: 'block w-full', id: 'preview', size: '400x300', onclick:"document.getElementById('article_article_image').click();" %>
         <%= f.file_field :article_image, class: "hidden", accept: 'image/*' %>
         <%= f.hidden_field :article_image_cache %>
-        <%= @article.user.decorate.full_name %>
+        <div class="text-gray-900 dark:text-white">
+          <%= @article.user.decorate.full_name %>
+        </div>
         <div class="items-center sm:mt-8">
           <div class="mb-2 sm:mb-6">
             <%= f.label :caption, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>

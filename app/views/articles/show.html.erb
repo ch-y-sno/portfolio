@@ -3,25 +3,31 @@
   <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
     <div class="grid mx-auto">
       <h1 class="text-teal-500 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= "お題を表示" %></h1>
-      <%= l @article.created_at, format: :long %>
-      <% if current_user.own?(@article) %>
-        <div class='d-flex justify-content-end'>
-          <%= link_to edit_article_path(@article), id: "button-edit-#{@article.id}" do %>
-            <i class="fa-solid fa-pen-to-square"></i>
-          <% end %>
-          <%= link_to article_path(@article), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, id: "button-delete-#{@article.id}", class: "ms-2" do %>
-            <i class="fa-solid fa-trash"></i>
-          <% end %>
+      <div class="grid mb-2 md:grid-cols-2">
+        <div class="flex text-gray-900 dark:text-white">
+          <%= l @article.created_at, format: :long %>
         </div>
-      <% end %>
+        <% if current_user.own?(@article) %>
+          <div class='text-2xl flex justify-end mx-2'>
+            <%= link_to edit_article_path(@article), id: "button-edit-#{@article.id}", class: "text-teal-500 dark:text-white" do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+            <%= link_to article_path(@article), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, id: "button-delete-#{@article.id}", class: "ms-2 text-red-700 dark:text-white" do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
       <%= image_tag @article.article_image.url, class: 'block w-full', width: "300", height: "200" %>
-      <%= @article.user.decorate.full_name %>
+      <div class="text-gray-900 dark:text-white">
+        <%= @article.user.decorate.full_name %>
+      </div>
       <div class="items-center sm:mt-8">
         <div class="mb-2 sm:mb-6">
           <% if @article.caption %>
-            <textarea disabled rows="4" class="block p-2.5 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 ">
-                <%= @article.caption %>
-              </textarea>
+            <div class="block p-2.5 w-full text-sm text-indigo-900 rounded-lg bg-indigo-50 focus:ring-indigo-500 focus:border-indigo-500 ">
+              <%= @article.caption %>
+            </div>
           <% end %>
         </div>
       </div>

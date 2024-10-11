@@ -61,9 +61,8 @@ ja:
       file_field_label: 画像を変更する
     
   comments:
-    edit:
+    comment:
       edit: 編集
-    destroy: 
       destroy: 削除
 
   header:
