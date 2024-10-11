@@ -4,6 +4,6 @@ class HomeController < ApplicationController
 
   def index
     @article = Article.new
-    @articles = Article.includes(:user)
+    @articles = Article.includes(:user).order(created_at: :desc)
   end
 end

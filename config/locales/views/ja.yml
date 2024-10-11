@@ -10,17 +10,22 @@ ja:
 
   defaults:
     delete_confirm: 削除しますか？
+    post: 投稿する
+    cancel: キャンセル
     flash_message:
-      updated: 更新しました
-      not_updated: 更新に失敗しました
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}の更新に失敗しました"
+      created: "%{item}を作成しました"
+      not_created: "%{item}の作成に失敗しました"
       require_login: ログインしてください
+      deleted: "%{item}を削除しました"
 
   home:
     top:
       login: ログイン
       text: この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
     index:
-      file_field_label: 投稿する
+      new: 投稿する
 
   user_sessions:
     new:
@@ -54,6 +59,11 @@ ja:
   articles:
     edit:
       file_field_label: 画像を変更する
+    
+  comments:
+    comment:
+      edit: 編集
+      destroy: 削除
 
   header:
     login: ログイン

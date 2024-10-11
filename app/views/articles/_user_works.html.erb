@@ -1,12 +1,13 @@
-<% content_for(:title, t('.title')) %>
+<div class="mt-8">
   <%= render 'shared/search' %>
   <%# 過去の記事のギャラリー表示　%>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
     <% if @articles.present? %>    
-      <%= render partial: 'articles/article_wo_fullname', collection: @articles %>  
+      <%= render partial: 'articles/article_wo_fullname', locals: { article: @article } %>  
     <% else %>
       <div class="mb-3">過去の投稿がありません</div>
     <% end %>
   </div>
+</div>
 
 

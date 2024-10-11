@@ -37,6 +37,11 @@ class User < ApplicationRecord
   has_many :topics, dependent: :destroy
   has_one :team_leader, dependent: :destroy
   belongs_to :team, optional: true
+  has_many :comments, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
+
+  def own?(object)
+    id == object&.user_id
+  end
 end
