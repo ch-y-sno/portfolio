@@ -25,7 +25,7 @@ ja:
       login: ログイン
       text: この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
     index:
-      file_field_label: 投稿する
+      new: 投稿する
 
   user_sessions:
     new:

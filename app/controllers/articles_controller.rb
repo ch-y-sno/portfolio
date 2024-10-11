@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
     @articles = Article.includes(:user).order(created_at: :desc)
   end
 
-  def new # いらない？
+  def new
     @article = Article.new
     @article_image = session[:uploaded_file]
   end
@@ -11,7 +11,10 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(image_params)
     if @article.save
-      redirect_to edit_article_path(@article) #, success: t('defaults.flash_message.created', item: Article.model_name.human)
+      redirect_to home_path, success: t('defaults.flash_message.created', item: Article.model_name.human)
+    else
+      flash.now[:danger] = t('defaults.flash_message.not_created', item: Article.model_name.human)
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -39,6 +42,10 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.find(params[:id])
     @article.destroy!
     redirect_to home_path, success: t("defaults.flash_message.deleted", item: Article.model_name.human)
+  end
+
+  def upload_image
+    render :new
   end
 
   private

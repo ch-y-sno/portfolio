@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resource :profile, only: %i[show update edit]
 
-  resources :articles, only: %i[index new create edit update show destroy] do
+  resources :articles, only: %i[index new create edit update show destroy upload_image] do
     resources :comments, only: %i[create edit destroy update], shallow: true
   end
 
