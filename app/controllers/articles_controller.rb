@@ -11,9 +11,9 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(image_params)
     if @article.save
-      redirect_to home_path, success: t('defaults.flash_message.created', item: Article.model_name.human)
+      redirect_to home_path, success: t("defaults.flash_message.created", item: Article.model_name.human)
     else
-      flash.now[:danger] = t('defaults.flash_message.not_created', item: Article.model_name.human)
+      flash.now[:danger] = t("defaults.flash_message.not_created", item: Article.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
