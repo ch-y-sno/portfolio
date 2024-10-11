@@ -18,6 +18,7 @@ ja:
       created: "%{item}を作成しました"
       not_created: "%{item}の作成に失敗しました"
       require_login: ログインしてください
+      deleted: "%{item}を削除しました"
 
   home:
     top:

@@ -35,6 +35,12 @@ class ArticlesController < ApplicationController
     @comments = @article.comments.includes(:user).order(created_at: :desc)
   end
 
+  def destroy
+    @article = current_user.articles.find(params[:id])
+    @article.destroy!
+    redirect_to home_path, success: t("defaults.flash_message.deleted", item: Article.model_name.human)
+  end
+
   private
 
   def image_params
