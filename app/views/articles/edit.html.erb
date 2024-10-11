@@ -3,24 +3,23 @@
   <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
     <div class="grid mx-auto">
       <h1 class="text-teal-500 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= "お題を表示" %></h1>
-      <% if @article.article_image %>
-        <%= image_tag @article.article_image.url, class: 'block w-full', id: 'preview', size: '400x300' %>
-      <% end %>    
-      <div class="items-center sm:mt-8">        
-        <%= form_with model: @article do |f| %>
-          <div class="mb-2 sm:mb-6">
-            <%= f.label :article_image, t('.file_field_label'), class:'py-3.5 px-7 text-base font-medium text-indigo-100 focus:outline-none bg-teal-400 rounded-lg border border-indigo-200 hover:bg-indigo-500 focus:z-10 focus:ring-4 focus:ring-teal-200' %>
-            <%= f.file_field :article_image, class: "hidden", accept: 'image/*' %>
-            <%= f.hidden_field :article_image_cache %>
-          </div>
+      <%= l @article.created_at, format: :long %>
+      <%= form_with model: @article do |f| %>
+        <%= image_tag @article.article_image.url, class: 'block w-full', id: 'preview', size: '400x300', onclick:"document.getElementById('article_article_image').click();" %>
+        <%= f.file_field :article_image, class: "hidden", accept: 'image/*' %>
+        <%= f.hidden_field :article_image_cache %>
+        <%= @article.user.decorate.full_name %>
+        <div class="items-center sm:mt-8">
           <div class="mb-2 sm:mb-6">
             <%= f.label :caption, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>
             <%= f.text_area :caption, class: "block p-2.5 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg border border-indigo-300 focus:ring-indigo-500 focus:border-indigo-500" %>
           </div>
-        <%= f.submit nil, class: "block flex justify-center items-center text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm px-20 py-3 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
-        <% end %>
-      </div>
+          <div class="w-1/2 grid gap-6 mb-6 md:grid-cols-2">
+            <%= f.submit nil, class: "block flex justify-center items-center text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm px-5 py-3 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+            <%= link_to t('defaults.cancel'), article_path(@article), class: "block flex justify-center items-center text-white bg-gray-400 hover:bg-gray-500 focus:outline-none font-medium rounded-lg text-sm px-5 py-3 text-center dark:bg-gray-400 dark:hover:bg-gray-500" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </main>
 </div>
-

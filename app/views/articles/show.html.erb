@@ -4,23 +4,25 @@
     <div class="grid mx-auto">
       <h1 class="text-teal-500 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= "お題を表示" %></h1>
       <%= l @article.created_at, format: :long %>
+      <% if current_user.own?(@article) %>
+        <div class='d-flex justify-content-end'>
+          <%= link_to edit_article_path(@article), id: "button-edit-#{@article.id}" do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          <%= link_to "#", id: "button-delete-#{@article.id}", class: "ms-2" do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+      <% end %>
       <%= image_tag @article.article_image.url, class: 'block w-full', width: "300", height: "200" %>
       <%= @article.user.decorate.full_name %>
-      <div class="items-center sm:mt-8">        
+      <div class="items-center sm:mt-8">
         <div class="mb-2 sm:mb-6">
           <% if @article.caption %>
             <textarea disabled rows="4" class="block p-2.5 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 ">
-              <%= @article.caption %>
-            </textarea>
+                <%= @article.caption %>
+              </textarea>
           <% end %>
-          <div class='d-flex justify-content-end'>
-            <%= link_to edit_article_path(@article), id: "button-edit-#{@article.id}" do %>
-              <i class="fa-solid fa-pen-to-square"></i>
-            <% end %>
-          <%= link_to "#", id: "button-delete-#{@article.id}", class: "ms-2" do %>
-            <i class="fa-solid fa-trash"></i>
-              <% end %>
-          </div>
         </div>
       </div>
     </div>
@@ -30,4 +32,3 @@
     </div>
   </main>
 </div>
-
