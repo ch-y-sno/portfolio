@@ -7,6 +7,9 @@
       <% end %>
       <span class="self-left text-2xl font-semibold whitespace-nowrap dark:text-white"><%= t('header.app_name') %></span>
       <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <%= link_to teams_path, class: "p-6 text-2xl text-black dark:text-white" do %>
+          <i class="fa-solid fa-user-group"></i>
+        <% end %>
         <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
           <span class="sr-only">Open user menu</span>
           <%= image_tag current_user.avatar_url, class: "w-8 h-8 rounded-full" %>

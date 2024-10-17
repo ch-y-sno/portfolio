@@ -1,0 +1,15 @@
+<div class='flex-col'>
+  <h5 class="text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">チームインデックスだよ</h5>
+  <%= link_to t('.new'), new_team_path, class: "mb-10 text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm px-8 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+  <div class="mt-8">
+    <%= render 'shared/search' %>
+    <%# 過去の記事のギャラリー表示　%>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <% if @teams.present? %>
+        <%= render 'teams/team_gallery' %>
+      <% else %>
+        <div class="mb-3">チームがありません。作成してみましょう！</div>
+      <% end %>
+    </div>
+  </div>
+</div>

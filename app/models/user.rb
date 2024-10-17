@@ -12,6 +12,7 @@
 #  team_id          :references       foreign_key: true
 #  age              :integer
 #  gender           :integer
+#  bio              :text
 #  avatar           :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null

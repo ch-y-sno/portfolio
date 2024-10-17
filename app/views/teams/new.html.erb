@@ -1,0 +1,63 @@
+<% content_for(:title, t('.title')) %>
+<div class="bg-white w-full flex flex-col gap-5 px-3 md:px-16 lg:px-28 md:flex-row dark:bg-gray-900">
+  <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
+    <h5 class="px-6 text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= t('.title') %><h5>
+      <%= form_with model: @team do |f| %>
+        <div>
+          <%= render 'shared/error_messages', object: f.object %>
+        </div>
+        <div class="p-2 md:p-4">
+          <div class="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
+            <div class="grid max-w-2xl mx-auto mt-8">
+              <div class="flex flex-col justify-center items-center space-y-5 sm:flex-row sm:space-y-0">
+                <%= image_tag @team.team_avatar.url,
+                              class: 'object-cover w-50 h-50 p-1 rounded-full ring-2 ring-teal-500 dark:ring-teal-400',
+                              id: 'preview',
+                              size: '200x200' %>
+                <div class="flex flex-col space-y-5 sm:ml-8">
+                  <%= f.label :team_avatar, t('.file_field_label'), class:'py-3.5 px-7 text-base font-medium text-indigo-100 focus:outline-none bg-teal-400 rounded-lg border border-indigo-200 hover:bg-indigo-500 focus:z-10 focus:ring-4 focus:ring-teal-200' %>
+                  <%= f.file_field :team_avatar, class: "hidden", accept: 'image/*' %>
+                  <%= f.hidden_field :team_avatar_cache %>
+                </div>
+              </div>
+              <div class="items-center mt-8 sm:mt-14">
+
+                  <div class="mb-6">
+                    <%= f.label :name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                    <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500" %>
+                  </div>
+                <div class="mb-6">
+                <%= f.label :description, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                <%= f.text_area :description, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500", placeholder: t('activerecord.attributes.team.description_placeholder') %>
+              </div>
+              <div class="mb-6">
+                <%= f.label :max_members, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                <%= f.number_field :max_members, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500" %>
+              </div>
+              <div class="mb-6">
+                <%= f.label :topic_order, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                <%= f.text_field :topic_order, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500" %>
+              </div>
+              <div class="mb-6">
+                <%= f.label :topic_frequency, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                <%= f.number_field :topic_frequency, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500" %>
+              </div>
+              <div class="mb-6">
+                <%= f.label :topic_post_time, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                <%= f.time_field :topic_post_time, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500" %>
+              </div>
+              <div class="mb-6">
+                <%= f.label :topic_post_time_manual, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                <%= f.datetime_local_field :topic_post_time_manual, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500" %>
+              </div>
+              <div class="mb-6">
+                <%= f.label :note, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                <%= f.text_area :note, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500", placeholder: t('activerecord.attributes.team.note_placeholder') %>
+              </div>
+              <%= f.submit nil, class: "mb-4 text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </main>
+</div>

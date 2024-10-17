@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.articles.build(image_params)
+    @article = current_user.articles.build(article_params)
     if @article.save
       redirect_to home_path, success: t("defaults.flash_message.created", item: Article.model_name.human)
     else
@@ -49,10 +49,6 @@ class ArticlesController < ApplicationController
   end
 
   private
-
-  def image_params
-    params.require(:article).permit(:article_image, :article_image_cache)
-  end
 
   def article_params
     params.require(:article).permit(:caption, :article_image, :article_image_cache)

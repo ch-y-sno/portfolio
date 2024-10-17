@@ -64,6 +64,13 @@ ja:
     comment:
       edit: 編集
       destroy: 削除
+  
+  teams:
+    new:
+      title: チーム作成
+      file_field_label: 画像を変更する
+    index:
+      new: チームを作成する
 
   header:
     login: ログイン
