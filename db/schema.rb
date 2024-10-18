@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_17_071152) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_18_063336) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,16 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_17_071152) do
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "member_requests", force: :cascade do |t|
+    t.integer "approval_status"
+    t.bigint "user_id"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_member_requests_on_team_id"
+    t.index ["user_id"], name: "index_member_requests_on_user_id"
   end
 
   create_table "team_leaders", force: :cascade do |t|
@@ -95,6 +105,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_17_071152) do
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
+  add_foreign_key "member_requests", "teams"
+  add_foreign_key "member_requests", "users"
   add_foreign_key "team_leaders", "teams"
   add_foreign_key "team_leaders", "users"
   add_foreign_key "topics", "teams"

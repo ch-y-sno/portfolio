@@ -78,6 +78,7 @@ ja:
       notice: チームのお知らせ
       leader: チームリーダー
       to_members_room: メンバーページへ
+      to_member_wanted: メンバー募集中！
   
   members:
     index:
@@ -86,6 +87,10 @@ ja:
       rule: "%{item}のルール"
       topic_frequency: "%{item}日ごと"
       max_members: "%{item}人"
+
+  member_requests:
+    index:
+      availability: "あと%{item}人入れます！"
 
   header:
     login: ログイン

@@ -14,10 +14,9 @@
               <p class="text-sm font-medium text-gray-400 dark:text-white sm:ml-8"><%= @team_leader.decorate.full_name %></p>
             </div>
           </div>
-          <%= link_to t('.to_members_room'), team_members_path(@team), class: "mb-4 text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
-          <%= link_to t('.to_member_wanted'), team_member_requests_path(@team), class: "mb-4 text-white bg-purple-400 hover:bg-purple-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-400 dark:hover:bg-purple-500" %>
-          <p class="mr-5 text-xl font-medium tracking-tight text-gray-900 dark:text-white sm:ml-8"><%= t('.notice') %></p>
+          <p class="mr-5 text-xl font-medium tracking-tight text-gray-900 dark:text-white sm:ml-8"><%= t('.availability', item: @availability ) %></p>
           <div class="mb-2 border-t border-gray-700 dark:border-white w-full"></div>
+          <%= link_to t('.request_membership'), "#", class: "mb-4 text-white bg-purple-400 hover:bg-purple-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-400 dark:hover:bg-purple-500" %>
         </div>
       </div>
     </div>
