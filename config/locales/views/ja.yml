@@ -1,4 +1,7 @@
 ja:
+  time:
+    formats:
+      post_time: "%p%l:%M"
   helpers:
     submit:
       create: 登録する
@@ -71,6 +74,18 @@ ja:
       file_field_label: 画像を変更する
     index:
       new: チームを作成する
+    show:
+      notice: チームのお知らせ
+      leader: チームリーダー
+      to_members_room: メンバーページへ
+  
+  members:
+    index:
+      to_team_page: チームページへ
+      leader: チームリーダー
+      rule: "%{item}のルール"
+      topic_frequency: "%{item}日ごと"
+      max_members: "%{item}人"
 
   header:
     login: ログイン

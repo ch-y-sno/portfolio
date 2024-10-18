@@ -9,12 +9,19 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.build(team_params)
+    @team.leader_user_id = current_user.id
     if @team.save
+      current_user.update(team_id: @team.id)
       redirect_to teams_path, success: t("defaults.flash_message.created", item: Team.model_name.human)
     else
       flash.now[:danger] = t("defaults.flash_message.not_created", item: Team.model_name.human)
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @team = Team.find(params[:id])
+    @team_leader = User.find(@team.leader_user_id)
   end
 
   private

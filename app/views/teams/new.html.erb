@@ -21,7 +21,6 @@
                 </div>
               </div>
               <div class="items-center mt-8 sm:mt-14">
-
                   <div class="mb-6">
                     <%= f.label :name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
                     <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500" %>
@@ -30,6 +29,7 @@
                 <%= f.label :description, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
                 <%= f.text_area :description, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500", placeholder: t('activerecord.attributes.team.description_placeholder') %>
               </div>
+
               <div class="mb-6">
                 <%= f.label :max_members, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
                 <%= f.number_field :max_members, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500" %>

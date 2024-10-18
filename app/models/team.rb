@@ -11,6 +11,7 @@
 #  topic_post_time             :time             not null
 #  topic_post_time_manual      :datetime
 #  note                        :text
+#  leader_user_id              :integer
 #  created_at                  :datetime         not null
 #  updated_at                  :datetime         not null
 #
@@ -27,11 +28,12 @@ class Team < ApplicationRecord
   validates :topic_frequency, presence: true
   validates :topic_post_time, presence: true
   validates :topic_post_time, length: { maximum: 255 }
-  validates :note, presence: true, length: { maximum: 65_535 }
+  validates :note, length: { maximum: 65_535 }
 
-  has_one :team_leader, dependent: :destroy
   has_many :topics
   has_many :users
+  belongs_to :team_leader, class_name: "User", foreign_key: "leader_user_id", optional: true
+
 
   mount_uploader :team_avatar, TeamAvatarUploader
 end

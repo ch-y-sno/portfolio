@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create edit destroy update], shallow: true
   end
 
-  resources :teams, only: %i[new index create]
+  resources :teams, only: %i[new index create show] do
+    resources :members, only: %i[index]
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
