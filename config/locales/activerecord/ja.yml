@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       article: 投稿
       comment: コメント
+      message: メンバー申請メッセージ
 
     attributes:
       user:
@@ -37,4 +38,9 @@ ja:
         topic_post_time_manual: 次回お題出題日変更
         note: 注意事項など
         note_placeholder: チームのルールに関する注意事項や備考などがあれば記載してください
+
+      member_request:
+        message_from_requester: チームリーダーにメッセージを送りましょう！
+        message_from_approver: 参加希望者にメッセージを送りましょう！
+        message_placeholder: よろしくお願いします
 

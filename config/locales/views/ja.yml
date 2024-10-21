@@ -22,6 +22,9 @@ ja:
       not_created: "%{item}の作成に失敗しました"
       require_login: ログインしてください
       deleted: "%{item}を削除しました"
+      requested: "%{item}にメンバー申請しました"
+      requested_failed: "%{item}へのメンバー申請に失敗しました"
+      one_request_only: ひとつのチームにしか申請できません。すでにチームに申請または所属しています
 
   home:
     top:
@@ -82,15 +85,19 @@ ja:
   
   members:
     index:
-      to_team_page: チームページへ
+      to_team_page: チームトップへ
       leader: チームリーダー
       rule: "%{item}のルール"
       topic_frequency: "%{item}日ごと"
       max_members: "%{item}人"
 
   member_requests:
-    index:
+    new:
       availability: "あと%{item}人入れます！"
+      request_membership: 参加申請する
+      leader: チームリーダー
+      title: メンバー申請
+      request_membership: 参加申請する！
 
   header:
     login: ログイン

@@ -31,6 +31,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { maximum: 255 }
   validates :nickname, presence: true, length: { maximum: 255 }, uniqueness: true
   validates :email, presence: true, uniqueness: true
+  validates :age, length: { maximum: 255 }
+  validates :gender, length: { maximum: 255 }
+  validates :bio, length: { maximum: 65_535 }
 
   enum gender: { male: 0, female: 1 }
 

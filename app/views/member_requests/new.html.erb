@@ -1,0 +1,60 @@
+<% content_for(:title, t('.title')) %>
+<div class="bg-white w-full flex flex-col gap-5 justify-center md:flex-row dark:bg-gray-900">
+  <main class="w-full min-h-screen md:w-2/3 lg:w-3/4">
+    <div class="p-2 md:p-4">
+      <div class="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
+        <div class="grid max-w-2xl mx-auto mt-8">
+          <div class="mb-5 flex flex-col justify-center items-center sm:flex-row sm:space-y-0">
+            <%= image_tag @team.team_avatar.url,
+                              class: 'object-cover w-50 h-50 p-1 rounded-full ring-2 ring-teal-500 dark:ring-teal-400',
+                              id: 'preview',
+                              size: '200x200' %>
+            <div class="flex mb-2">
+              <label class="mr-5 text-sm font-medium text-gray-900 dark:text-white sm:ml-8"><%= t('.leader') %></label>
+              <p class="text-sm font-medium text-gray-400 dark:text-white sm:ml-8"><%= @team_leader.decorate.full_name %></p>
+            </div>
+          </div>
+          <p class="mr-5 text-xl font-medium tracking-tight text-gray-900 dark:text-white sm:ml-8"><%= t('.availability', item: @availability ) %></p>
+          <div class="mb-2 border-t border-gray-700 dark:border-white w-full"></div>
+          <%= link_to t('.request_membership'), "#", data: { turbo: false, modal_target: "request_membership-modal", modal_toggle: "request_membership-modal" }, class: "block text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm px-20 py-3 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<!-- Main modal -->
+<%= tag.turbo_frame(id: :modal) do %>
+  <div id="request_membership-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <!-- Modal header -->
+        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+            <%= t('.title') %>
+          </h3>
+          <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="request_membership-modal">
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+            </svg>
+            <span class="sr-only">Close modal</span>
+          </button>
+        </div>
+        <!-- Modal body -->
+        <div class="p-4 md:p-5">
+          <%= form_with model: [@team, @member_request], class: "space-y-4", data: { turbo: false } do |f| %>
+            <div>
+              <%= render 'shared/error_messages', object: f.object %>
+            </div>
+            <div>
+              <%= f.label :message_from_requester, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+              <%= f.text_area :message_from_requester, class: "block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: t('activerecord.attributes.member_request.message_placeholder') %>
+            </div>
+            <%= f.submit t('.request_membership'), class: "block text-white bg-purple-400 hover:bg-purple-500 focus:outline-none font-medium rounded-lg text-sm px-20 py-3 text-center dark:bg-purple-400 dark:hover:bg-purple-500" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
