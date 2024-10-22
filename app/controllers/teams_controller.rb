@@ -24,6 +24,21 @@ class TeamsController < ApplicationController
     @team_leader = User.find(@team.leader_user_id)
   end
 
+  def edit
+    @team = current_user.team
+  end
+
+  def update
+    @team = current_user.team
+    if @team.update(team_params)
+      redirect_to team_path(@team), success: t("defaults.flash_message.updated", item: Team.model_name.human)
+    else
+      flash.now[:danger] = t("defaults.flash_message.not_updated", item: Team.model_name.human)
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+
   private
 
   def team_params

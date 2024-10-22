@@ -82,10 +82,13 @@ ja:
       leader: チームリーダー
       to_members_room: メンバーページへ
       to_member_wanted: メンバー募集中！
+    edit:
+      file_field_label: 画像を変更する
   
   members:
     index:
       to_team_page: チームトップへ
+      to_team_edit_page: チーム管理 (リーダーのみ)
       leader: チームリーダー
       rule: "%{item}のルール"
       topic_frequency: "%{item}日ごと"

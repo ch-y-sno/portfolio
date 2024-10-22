@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create edit destroy update], shallow: true
   end
 
-  resources :teams, only: %i[new index create show] do
+  resources :teams, only: %i[new index create show edit update] do
     resources :members, only: %i[index]
     resources :member_requests, only: %i[new create delete]
   end
