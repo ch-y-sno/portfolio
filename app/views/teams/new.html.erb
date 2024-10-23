@@ -1,7 +1,6 @@
 <% content_for(:title, t('.title')) %>
 <div class="bg-white w-full flex flex-col gap-5 px-3 md:px-16 lg:px-28 md:flex-row dark:bg-gray-900">
   <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
-    <h5 class="px-6 text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= t('.title') %><h5>
       <%= form_with model: @team do |f| %>
         <div>
           <%= render 'shared/error_messages', object: f.object %>

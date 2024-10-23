@@ -25,6 +25,7 @@ ja:
       requested: "%{item}にメンバー申請しました"
       requested_failed: "%{item}へのメンバー申請に失敗しました"
       one_request_only: ひとつのチームにしか申請できません。すでにチームに申請または所属しています
+      decided: "%{item1}さんのメンバー申請を%{item2}しました。"
 
   home:
     top:
@@ -84,6 +85,8 @@ ja:
       to_member_wanted: メンバー募集中！
     edit:
       file_field_label: 画像を変更する
+    member_request:
+      title: メンバー申請一覧
   
   members:
     index:
@@ -101,6 +104,13 @@ ja:
       leader: チームリーダー
       title: メンバー申請
       request_membership: 参加申請する！
+    show:
+      decision: "%{item}さんをチームメンバーとして承認しますか？"
+      message_to_requester: "%{item}さんにメッセージを送りましょう！"
+      decide: 決定する
+    approval_status:
+      approved: 承認
+      rejected: 拒否
 
   header:
     login: ログイン

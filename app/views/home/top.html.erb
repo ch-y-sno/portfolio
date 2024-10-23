@@ -44,9 +44,6 @@
           </button>
         </div>
         <!-- Modal body -->
-        <div>
-          <%= render 'shared/error_messages', object: f.object %>
-        </div>
         <div class="p-4 md:p-5">
           <%= form_with url: login_path, class: "space-y-4", data: { turbo: false } do |f| %>
             <div>

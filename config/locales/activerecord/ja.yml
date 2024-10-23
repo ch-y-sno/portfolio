@@ -4,7 +4,7 @@ ja:
       user: ユーザー
       article: 投稿
       comment: コメント
-      message: メンバー申請メッセージ
+      member_request: メンバー申請
 
     attributes:
       user:
@@ -41,6 +41,5 @@ ja:
 
       member_request:
         message_from_requester: チームリーダーにメッセージを送りましょう！
-        message_from_approver: 参加希望者にメッセージを送りましょう！
         message_placeholder: よろしくお願いします
-
+        
