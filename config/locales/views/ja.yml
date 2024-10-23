@@ -1,4 +1,7 @@
 ja:
+  time:
+    formats:
+      post_time: "%p%l:%M"
   helpers:
     submit:
       create: 登録する
@@ -12,6 +15,7 @@ ja:
     delete_confirm: 削除しますか？
     post: 投稿する
     cancel: キャンセル
+    private: 非公開
     flash_message:
       updated: "%{item}を更新しました"
       not_updated: "%{item}の更新に失敗しました"
@@ -19,6 +23,10 @@ ja:
       not_created: "%{item}の作成に失敗しました"
       require_login: ログインしてください
       deleted: "%{item}を削除しました"
+      requested: "%{item}にメンバー申請しました"
+      requested_failed: "%{item}へのメンバー申請に失敗しました"
+      one_request_only: ひとつのチームにしか申請できません。すでにチームに申請または所属しています
+      decided: "%{item1}さんのメンバー申請を%{item2}しました。"
 
   home:
     top:
@@ -64,6 +72,46 @@ ja:
     comment:
       edit: 編集
       destroy: 削除
+  
+  teams:
+    new:
+      title: チーム作成
+      file_field_label: 画像を変更する
+    index:
+      new: チームを作成する
+    show:
+      notice: チームのお知らせ
+      leader: チームリーダー
+      to_members_room: メンバーページへ
+      to_member_wanted: メンバー募集中！
+    edit:
+      file_field_label: 画像を変更する
+    member_request:
+      title: メンバー申請一覧
+  
+  members:
+    index:
+      to_team_page: チームトップへ
+      to_team_edit_page: チーム管理 (リーダーのみ)
+      leader: チームリーダー
+      rule: "%{item}のルール"
+      topic_frequency: "%{item}日ごと"
+      max_members: "%{item}人"
+
+  member_requests:
+    new:
+      availability: "あと%{item}人入れます！"
+      request_membership: 参加申請する
+      leader: チームリーダー
+      title: メンバー申請
+      request_membership: 参加申請する！
+    show:
+      decision: "%{item}さんをチームメンバーとして承認しますか？"
+      message_to_requester: "%{item}さんにメッセージを送りましょう！"
+      decide: 決定する
+    approval_status:
+      approved: 承認
+      rejected: 拒否
 
   header:
     login: ログイン

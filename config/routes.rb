@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create edit destroy update], shallow: true
   end
 
+  resources :teams, only: %i[new index create show edit update] do
+    resources :members, only: %i[index]
+    resources :member_requests, only: %i[new create delete show update]
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

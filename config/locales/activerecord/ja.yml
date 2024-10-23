@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       article: 投稿
       comment: コメント
+      member_request: メンバー申請
 
     attributes:
       user:
@@ -25,3 +26,20 @@ ja:
 
       comment:
         body: コメント
+
+      team:
+        name: チーム名
+        description: チームの紹介
+        description_placeholder: 自由に参加できるチームです。よろしくお願いします！
+        max_members: メンバー人数上限
+        topic_order: お題出題順
+        topic_frequency: お題出題頻度
+        topic_post_time: お題出題時刻
+        topic_post_time_manual: 次回お題出題日変更
+        note: 注意事項など
+        note_placeholder: チームのルールに関する注意事項や備考などがあれば記載してください
+
+      member_request:
+        message_from_requester: チームリーダーにメッセージを送りましょう！
+        message_placeholder: よろしくお願いします
+        

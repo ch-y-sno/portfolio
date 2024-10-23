@@ -1,0 +1,49 @@
+<% content_for(:title, t('.title')) %>
+<div class="bg-white w-full flex flex-col gap-5 justify-center md:flex-row dark:bg-gray-900">
+  <main class="w-full min-h-screen md:w-2/3 lg:w-3/4">
+    <div class="p-2 md:p-4">
+      <div class="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
+        <div class="grid max-w-2xl mx-auto mt-8">
+          <div class="mb-5 flex flex-col justify-center items-center sm:flex-row sm:space-y-0">
+            <%= image_tag @requester.avatar.url,
+                              class: 'object-cover w-50 h-50 p-1 rounded-full ring-2 ring-teal-500 dark:ring-teal-400',
+                              id: 'preview',
+                              size: '100x100' %>
+            <div class="flex mb-2">
+              <%= link_to @requester.decorate.full_name, user_path(@requester), class: "text-sm font-medium text-gray-400 dark:text-white sm:ml-8" %>
+            </div>
+          </div>
+        </div>
+        <div>
+          <% if @member_request.message_from_requester.present? %>
+            <p class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg dark:bg-gray-700 dark:text-white">
+              <%= @member_request.message_from_requester %>
+           </p>
+          <% end %>
+        </div>
+        <%= form_with model: [@team, @member_request], class: "space-y-4" do |f| %>
+            <div>
+              <%= render 'shared/error_messages', object: f.object %>
+            </div>
+            <div class="max-w-sm mx-auto">
+              <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <%= t('.decision', item: @requester.decorate.full_name) %>
+              </p>
+              <%= f.select :approval_status, MemberRequest.approval_statuses.keys.drop(1).map { |k| [t("member_requests.approval_status.#{k}"), k]}, { include_blank: "選択して下さい"} , { class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" } %>
+            </div>
+            <div class="max-w-sm mx-auto">
+              <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <%= t('.message_to_requester', item: @requester.decorate.full_name) %>
+              </p>
+              <%= f.text_area :message_from_approver, class: "block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: t('activerecord.attributes.member_request.message_placeholder') %>
+            </div>
+            <div class="max-w-sm mx-auto">
+              <%= f.submit t('.decide'), class: "block text-white bg-purple-400 hover:bg-purple-500 focus:outline-none font-medium rounded-lg text-sm px-20 py-3 text-center dark:bg-purple-400 dark:hover:bg-purple-500" %>
+            </div>
+          <% end %>
+
+
+      </div>
+    </div>
+  </main>
+</div>

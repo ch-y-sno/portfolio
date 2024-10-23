@@ -3,7 +3,7 @@
 # Table name: articles
 #
 # id               :bigint           not null, primary key
-# image_url        :string           not null
+# article_image    :string           not null
 # caption          :text
 # user_id          :references       foreign_key: true
 # topic_id         :references       foreign_key: true
