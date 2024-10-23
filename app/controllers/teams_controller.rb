@@ -22,6 +22,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     @team_leader = User.find(@team.leader_user_id)
+    @team_members = @team.users
   end
 
   def edit

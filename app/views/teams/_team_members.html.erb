@@ -1,0 +1,12 @@
+<div class="flex mx-3 my-5">
+  <% @team_members.each do |team_member| %>
+    <div id="team-member-id-<%= team_member.id %>">
+      <div class="mx-3 grid justify-center items-center space-y-5 sm:flex-row sm:space-y-0">
+        <%= image_tag team_member.avatar_url, class: "object-cover p-1 rounded-full ring-2 ring-teal-500 dark:ring-teal-400", size: '100x100' %>
+        <p class="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">
+          <%= link_to team_member.decorate.full_name, user_path(team_member) %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
