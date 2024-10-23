@@ -15,7 +15,7 @@
               </div>
               <div class="flex mb-2">
                 <label class="mr-5 text-sm font-medium text-gray-900 dark:text-white sm:ml-8"><%= t('.leader') %></label>
-                <p class="text-sm font-medium text-gray-400 dark:text-white sm:ml-8"><%= @team_leader.decorate.full_name %></p>
+                <%= link_to @team_leader.decorate.full_name, user_path(@team_leader), class: "text-sm font-medium text-gray-400 dark:text-white sm:ml-8" %>
               </div>
             </div>
           </div>
