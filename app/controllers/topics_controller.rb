@@ -1,22 +1,23 @@
-class TeamsController < ApplicationController
-  def index
-    @teams = Team.order(created_at: :desc)
-  end
-
+class TopicsController < ApplicationController
   def new
-    @team = Team.new
+    @team = Team.find(params[:team_id])
+    @topic = Topic.new
   end
 
   def create
-    @team = Team.build(team_params)
-    @team.leader_user_id = current_user.id
-    if @team.save
-      current_user.update(team_id: @team.id)
-      redirect_to teams_path, success: t("defaults.flash_message.created", item: Team.model_name.human)
+    @team = Team.find(params[:team_id])
+    @topic = Topic.build(topic_params)
+    if @topic.save
+      redirect_to team_members_path(@team), success: t("defaults.flash_message.created", item: Topic.model_name.human)
     else
-      flash.now[:danger] = t("defaults.flash_message.not_created", item: Team.model_name.human)
+      flash.now[:danger] = t("defaults.flash_message.not_created", item: Topic.model_name.human)
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def index
+    @team = Team.find(params[:team_id])
+    @topics = @team.topics.order(created_at: :desc)
   end
 
   def show
@@ -28,7 +29,6 @@ class TeamsController < ApplicationController
   def edit
     @team = current_user.team
     @member_requests = @team.member_requests.where(approval_status: "pending")
-    @topics = @team.topics.order(created_at: :desc)
     if @member_requests.present?
       @member_requests = @member_requests.order(created_at: :desc)
     end
@@ -47,7 +47,7 @@ class TeamsController < ApplicationController
 
   private
 
-  def team_params
-    params.require(:team).permit(:name, :description, :max_members, :topic_order, :topic_frequency, :topic_post_time, :topic_post_time_manual, :note, :team_avatar, :team_avatar_cache)
+  def topic_params
+    params.require(:topic).permit(:title, :description).merge(user_id: current_user.id, team_id: params[:team_id])
   end
 end

@@ -5,6 +5,7 @@ ja:
       article: 投稿
       comment: コメント
       member_request: メンバー申請
+      topic: お題
 
     attributes:
       user:
@@ -42,4 +43,9 @@ ja:
       member_request:
         message_from_requester: チームリーダーにメッセージを送りましょう！
         message_placeholder: よろしくお願いします
+
+      topic:
+        title: お題
+        description: お題の解説・条件など
+
         

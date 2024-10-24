@@ -92,6 +92,7 @@ ja:
   members:
     index:
       to_team_page: チームトップへ
+      to_new_topic_page: お題を作成する
       to_team_edit_page: チーム管理 (リーダーのみ)
       leader: チームリーダー
       rule: "%{item}のルール"
