@@ -113,6 +113,11 @@ ja:
     approval_status:
       approved: 承認
       rejected: 拒否
+  
+  topics:
+    topics_list:
+      title: お題一覧
+      destroy: 削除
 
   header:
     login: ログイン
