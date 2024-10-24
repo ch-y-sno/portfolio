@@ -28,6 +28,7 @@ class TeamsController < ApplicationController
   def edit
     @team = current_user.team
     @member_requests = @team.member_requests.where(approval_status: "pending")
+    @topics = @team.topics.order(created_at: :desc)
     if @member_requests.present?
       @member_requests = @member_requests.order(created_at: :desc)
     end

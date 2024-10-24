@@ -15,6 +15,7 @@
             </div>
           </div>
           <%= link_to t('.to_team_page'), team_path(@team), class: "mb-4 text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+          <%= link_to t('.to_new_topic_page'), new_team_topic_path(@team), class: "mb-4 text-white bg-purple-400 hover:bg-purple-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-400 dark:hover:bg-purple-500" %>
           <%= link_to t('.to_team_edit_page'), edit_team_path(@team), class: "mb-4 text-white bg-fuchsia-400 hover:bg-fuchsia-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-fuchsia-400 dark:hover:bg-fuchsia-500" %>
           <p class="mr-5 text-xl font-medium tracking-tight text-gray-900 dark:text-white sm:ml-8"><%= t('.rule', item: @team.name) %></p>
           <div class="mb-2 border-t border-gray-700 dark:border-white w-full"></div>

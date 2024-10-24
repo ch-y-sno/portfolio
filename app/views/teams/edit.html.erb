@@ -60,11 +60,21 @@
       <% end %>
   </main>
   <div class="flex flex-col">
-    <h5 class="px-6 text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= t('teams.member_request.title') %><h5>
-    <% if @member_requests.present? %>
-      <%= render 'teams/member_request' %>  
-    <% else %>
-      <div class="mb-3">現在メンバー申請は届いていません</div>
-    <% end %>
-  </div>    
+    <div class="mb-5">
+      <h5 class="px-6 mt-12 text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= t('teams.member_request.title') %><h5>
+      <% if @member_requests.present? %>
+        <%= render 'teams/member_request' %>  
+      <% else %>
+        <div class="mb-3">現在メンバー申請は届いていません</div>
+      <% end %>
+    </div>
+    <div>
+      <h5 class="px-6 mt-12 text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= t('topics.topics_list.title') %><h5>
+      <% if @topics.present? %>
+        <%= render 'topics/topics_list' %>  
+      <% else %>
+        <div class="mb-3">お題はまだありません</div>
+      <% end %>
+    </div>
+  </div>  
 </div>

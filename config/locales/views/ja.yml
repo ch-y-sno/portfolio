@@ -92,6 +92,7 @@ ja:
   members:
     index:
       to_team_page: チームトップへ
+      to_new_topic_page: お題を作成する
       to_team_edit_page: チーム管理 (リーダーのみ)
       leader: チームリーダー
       rule: "%{item}のルール"
@@ -112,6 +113,14 @@ ja:
     approval_status:
       approved: 承認
       rejected: 拒否
+  
+  topics:
+    topics_list:
+      title: お題一覧
+      destroy: 削除
+    user_posted_topics_list:
+      destroy: 削除
+      edit: 編集
 
   header:
     login: ログイン

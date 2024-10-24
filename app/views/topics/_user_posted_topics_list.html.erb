@@ -1,0 +1,26 @@
+<% @topics.each do |topic| %>
+  <%= turbo_frame_tag dom_id(topic) do %>
+    <div id="topic-<%= topic.id %>">
+      <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
+        <li class="pb-2">
+          <div class="flex items-center space-x-4 rtl:space-x-reverse">
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                <%= topic.title %>
+              </p>
+              <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                <%= topic.description %>
+              </p>
+            </div>
+            <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+              <%= link_to t('.edit'), edit_team_topic_path(@team, topic), class: "block px-4 py-2 text-green-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+              <%= link_to t('.destroy'), team_topic_path(@team, topic), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "block px-4 py-2 text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            </div>
+          </div>
+          <div class="mb-2 border-t border-gray-400 dark:border-white w-full"></div>
+        </li>
+      </ul>
+      
+    </div>
+  <% end %>
+<% end%>

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :teams, only: %i[new index create show edit update] do
     resources :members, only: %i[index]
     resources :member_requests, only: %i[new create delete show update]
+    resources :topics, only: %i[new create destroy edit update]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
