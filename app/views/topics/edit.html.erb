@@ -1,0 +1,14 @@
+<%= turbo_frame_tag dom_id(@topic) do %>
+  <div class="flex items-start gap-2.5 mb-2">
+    <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+      <%= form_with model: [@team, @topic], class: "max-w-sm" do |f| %>
+        <%= f.text_field :title, class: "mb-1 w-full text-sm rounded-lg font-normal py-2.5 text-gray-900 dark:text-white" %>
+        <%= f.text_area :description, class: "w-full text-sm rounded-lg font-normal py-2.5 text-gray-900 dark:text-white" %>
+        <div class="grid my-2 gap-2.5 md:grid-cols-2">
+          <%= link_to t('defaults.cancel'), home_path, class: "block flex justify-center items-center py-2 text-white bg-gray-400 hover:bg-gray-500 focus:outline-none font-medium rounded-lg text-sm text-center dark:bg-gray-400 dark:hover:bg-gray-500" %>
+          <%= f.submit t('defaults.post'), class: "block flex justify-center items-center py-2 text-white bg-teal-400 hover:bg-teal-600 focus:outline-none font-medium rounded-lg text-sm text-center dark:bg-teal-400 dark:hover:bg-teal-600" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

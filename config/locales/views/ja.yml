@@ -118,6 +118,9 @@ ja:
     topics_list:
       title: お題一覧
       destroy: 削除
+    user_posted_topics_list:
+      destroy: 削除
+      edit: 編集
 
   header:
     login: ログイン

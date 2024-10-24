@@ -15,31 +15,21 @@ class TopicsController < ApplicationController
     end
   end
 
-  def index
-    @team = Team.find(params[:team_id])
-    @topics = @team.topics.order(created_at: :desc)
-  end
-
-  def show
-    @team = Team.find(params[:id])
-    @team_leader = User.find(@team.leader_user_id)
-    @team_members = @team.users
-  end
-
   def edit
     @team = current_user.team
     @member_requests = @team.member_requests.where(approval_status: "pending")
+    @topic = current_user.topics.find(params[:id])
     if @member_requests.present?
       @member_requests = @member_requests.order(created_at: :desc)
     end
   end
 
   def update
-    @team = current_user.team
-    if @team.update(team_params)
-      redirect_to team_path(@team), success: t("defaults.flash_message.updated", item: Team.model_name.human)
+    @topic = current_user.topics.find(params[:id])
+    if @topic.update(topic_params)
+      redirect_to home_path, success: t("defaults.flash_message.updated", item: Topic.model_name.human)
     else
-      flash.now[:danger] = t("defaults.flash_message.not_updated", item: Team.model_name.human)
+      flash.now[:danger] = t("defaults.flash_message.not_updated", item: Topic.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
