@@ -16,6 +16,13 @@ ja:
     post: 投稿する
     cancel: キャンセル
     private: 非公開
+    comment: コメント
+    topic: お題
+    caption: キャプション
+    user: ユーザー
+    date: 日付
+    from: から
+    to: まで
     flash_message:
       updated: "%{item}を更新しました"
       not_updated: "%{item}の更新に失敗しました"
@@ -27,6 +34,8 @@ ja:
       requested_failed: "%{item}へのメンバー申請に失敗しました"
       one_request_only: ひとつのチームにしか申請できません。すでにチームに申請または所属しています
       decided: "%{item1}さんのメンバー申請を%{item2}しました。"
+    search:
+      placeholder: キャプション、コメント、コメントしたユーザーから検索できます 
 
   home:
     top:

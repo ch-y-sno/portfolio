@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
-  def index # いらない？
-    @articles = Article.includes(:user).order(created_at: :desc)
+  def index
+    @q = Article.ransack(params[:q])
+    @articles = @q.result(distinct: :true).includes(:user).order(created_at: :desc)
+    @topics = current_user.topics.order(created_at: :desc)
   end
 
   def new

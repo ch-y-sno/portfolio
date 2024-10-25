@@ -1,5 +1,6 @@
-<div class="mt-8">
-  <%= render 'shared/search' %>
+
+    <%= render 'shared/search_user_works' %>
+
   <%# 過去の記事のギャラリー表示　%>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
     <% if @articles.present? %>    
@@ -8,6 +9,6 @@
       <div class="mb-3">過去の投稿がありません</div>
     <% end %>
   </div>
-</div>
+
 
 
