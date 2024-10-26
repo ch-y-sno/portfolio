@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.order(created_at: :desc)
+    @q = Team.ransack(params[:q])
+    @teams = @q.result(distinct: :true).order(created_at: :desc)
   end
 
   def new

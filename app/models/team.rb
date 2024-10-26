@@ -35,6 +35,13 @@ class Team < ApplicationRecord
   has_many :member_requests
   belongs_to :team_leader, class_name: "User", foreign_key: "leader_user_id", optional: true
 
-
   mount_uploader :team_avatar, TeamAvatarUploader
+
+  def self.ransackable_attributes(auth_object = nil)
+    [ "created_at", "description", "id", "id_value", "leader_user_id", "max_members", "name", "note", "team_avatar", "topic_frequency", "topic_order", "topic_post_time", "topic_post_time_manual", "updated_at" ]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    [ "member_requests", "team_leader", "topics", "users" ]
+  end
 end

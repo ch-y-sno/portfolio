@@ -24,6 +24,9 @@ ja:
     from: から
     to: まで
     clear: クリア
+    team_name: チーム名
+    team_description: チームの紹介
+    team_members: チームメンバー
     flash_message:
       updated: "%{item}を更新しました"
       not_updated: "%{item}の更新に失敗しました"
@@ -37,6 +40,7 @@ ja:
       decided: "%{item1}さんのメンバー申請を%{item2}しました。"
     search:
       placeholder: キャプション、コメント、コメントしたユーザーから検索できます
+      placeholder_teams: チーム名、チームの紹介、チームメンバーから検索できます
       advanced_search: 詳細検索
 
   home:
