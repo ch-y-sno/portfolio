@@ -23,6 +23,7 @@ ja:
     date: 日付
     from: から
     to: まで
+    clear: クリア
     flash_message:
       updated: "%{item}を更新しました"
       not_updated: "%{item}の更新に失敗しました"
@@ -35,7 +36,8 @@ ja:
       one_request_only: ひとつのチームにしか申請できません。すでにチームに申請または所属しています
       decided: "%{item1}さんのメンバー申請を%{item2}しました。"
     search:
-      placeholder: キャプション、コメント、コメントしたユーザーから検索できます 
+      placeholder: キャプション、コメント、コメントしたユーザーから検索できます
+      advanced_search: 詳細検索
 
   home:
     top:

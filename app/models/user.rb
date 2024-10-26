@@ -52,4 +52,8 @@ class User < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     [ "age", "avatar", "bio", "created_at", "first_name", "gender", "id", "id_value", "last_name", "nickname", "team_id", "updated_at"]
   end
+
+  def self.ransackable_associations(auth_object = nil)
+    [ "articles", "comments", "member_request", "team", "topics" ]
+  end
 end
