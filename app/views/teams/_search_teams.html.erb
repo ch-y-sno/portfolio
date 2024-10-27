@@ -1,0 +1,38 @@
+<%= search_form_for @q, url: teams_path, class: "mb-2" do |f| %>
+  <div class="flex">    
+    <div class="flex w-1/2">
+      <%= f.search_field :name_or_description_or_users_first_name_or_users_last_name__cont, class: "block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-s-lg border-e-gray-50 border-e-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500", placeholder: t('defaults.search.placeholder_teams') %>
+      <button type="submit", class="top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+  </div>
+<% end %>
+<div id="accordion-collapse" data-accordion="collapse" class="mb-5">
+  <div id="accordion-collapse-heading-1">
+    <%= button_tag class: "flex items-center justify-between text-sm rtl:text-right border border-blue-700 rounded-lg dark:border-blue-600 gap-3", data: { accordion_target: "#accordion-collapse-body-1" }, aria: "hidden", controls: "accordion-collapse-body-1" do %>
+      <span class="text-white p-2.5 bg-blue-700 dark:bg-blue-600 hover:bg-blue-800"><%= t('defaults.search.advanced_search') %></span>
+    <% end %>
+  </div>
+  <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+    <%= search_form_for @q, url: teams_path, class: "items-center mt-2" do |f| %>   
+      <div class="grid grid-cols-3 gap-2.5 mb-2">
+        <%= f.search_field :name_cont, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: t('defaults.search.team_name') %>
+        <%= f.search_field :description_cont, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: t('defaults.search.team_description') %>
+        <%= f.search_field :users_first_name_or_users_last_name_cont, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: t('defaults.search.team_members') %>
+      </div>  
+      <div class="flex space-x-2">
+        <span class="text-gray-900 text-sm p-2.5 dark:text-white"><%= t('defaults.search.teams_created_between') %></span>
+        <%= f.date_field :created_at_gteq, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <span class="text-gray-900 text-sm p-2.5 dark:text-white"><%= t('defaults.search.from') %></span>
+        <%= f.date_field :created_at_lteq, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <span class="text-gray-900 text-sm p-2.5 dark:text-white"><%= t('defaults.search.to') %></span>
+        <div class="flex">
+          <button type="submit", class="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -27,4 +27,12 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   mount_uploader :article_image, ArticleImageUploader
+
+  def self.ransackable_attributes(auth_object = nil)
+    [ "article_image", "caption", "created_at", "id", "id_value", "is_public", "is_winner", "topic_id", "updated_at", "user_id" ]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    [ "comments", "topic", "user" ]
+  end
 end
