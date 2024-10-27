@@ -21,12 +21,6 @@ ja:
     caption: キャプション
     user: ユーザー
     date: 日付
-    from: から
-    to: まで
-    clear: クリア
-    team_name: チーム名
-    team_description: チームの紹介
-    team_members: チームメンバー
     flash_message:
       updated: "%{item}を更新しました"
       not_updated: "%{item}の更新に失敗しました"
@@ -42,6 +36,13 @@ ja:
       placeholder: キャプション、コメント、コメントしたユーザーから検索できます
       placeholder_teams: チーム名、チームの紹介、チームメンバーから検索できます
       advanced_search: 詳細検索
+      articles_created_between: 投稿日が
+      teams_created_between: チーム結成日が
+      from: から
+      to: までの期間
+      team_name: チーム名
+      team_description: チームの紹介
+      team_members: チームメンバー
 
   home:
     top:
