@@ -46,9 +46,11 @@ ja:
 
   home:
     top:
+      title: TOP
       login: ログイン
       text: この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
     index:
+      title: マイページ
       new: 投稿する
 
   user_sessions:
@@ -73,16 +75,23 @@ ja:
     create:
       success: ユーザー登録が完了しました
       fail: ユーザー登録に失敗しました
+    show:
+      title: "【ユーザー詳細】%{item} さん"
   
   profiles:
     show:
+      title: マイプロフィール
       to_edit_page: 編集する
     edit:
+      title: プロフィール編集
       file_field_label: 画像をアップロード
 
   articles:
     edit:
+      title: 投稿内容編集
       file_field_label: 画像を変更する
+    show:
+      title: "お題: %{item} への投稿"
     
   comments:
     comment:
@@ -94,19 +103,23 @@ ja:
       title: チーム作成
       file_field_label: 画像を変更する
     index:
+      title: チーム一覧
       new: チームを作成する
     show:
+      title: "【チーム詳細】%{item}"
       notice: チームのお知らせ
       leader: チームリーダー
       to_members_room: メンバーページへ
       to_member_wanted: メンバー募集中！
     edit:
+      title: チーム管理
       file_field_label: 画像を変更する
     member_request:
       title: メンバー申請一覧
   
   members:
     index:
+      title: メンバー専用
       to_team_page: チームトップへ
       to_new_topic_page: お題を作成する
       to_team_edit_page: チーム管理 (リーダーのみ)
@@ -117,12 +130,14 @@ ja:
 
   member_requests:
     new:
+      title: メンバー申請
       availability: "あと%{item}人入れます！"
       request_membership: 参加申請する
       leader: チームリーダー
       title: メンバー申請
       request_membership: 参加申請する！
     show:
+      title: "%{item}さんからのメンバー申請"
       decision: "%{item}さんをチームメンバーとして承認しますか？"
       message_to_requester: "%{item}さんにメッセージを送りましょう！"
       decide: 決定する
@@ -147,7 +162,7 @@ ja:
     create_board: 掲示板作成
     bookmark_index: ブックマーク一覧
     profile: プロフィール
-    user_info: ユーザー情報
+    user_info: マイプロフィール
 
   footer:
     app_name: app_name

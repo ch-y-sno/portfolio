@@ -1,4 +1,4 @@
-<% content_for(:title) %>
+<% content_for(:title, t('.title')) %>
 <%= form_with url: login_path, class: "space-y-4" do |f| %>
   <div>
     <%= f.label :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
