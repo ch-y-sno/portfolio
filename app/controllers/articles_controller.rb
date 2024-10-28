@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   def index
     @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: :true).includes(:user).order(created_at: :desc)
+    @articles = @q.result(distinct: :true).includes(:user).order(created_at: :desc).page(params[:page])
     @topics = current_user.topics.order(created_at: :desc)
   end
 
