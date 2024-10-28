@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   def index
     @q = Team.ransack(params[:q])
-    @teams = @q.result(distinct: :true).order(created_at: :desc)
+    @teams = @q.result(distinct: :true).order(created_at: :desc).page(params[:page])
   end
 
   def new

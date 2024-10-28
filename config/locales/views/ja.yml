@@ -43,6 +43,13 @@ ja:
       team_name: チーム名
       team_description: チームの紹介
       team_members: チームメンバー
+  
+  views:
+    pagination:
+      previous: 前へ
+      next: 次へ
+      first: 最初へ
+      last: 最後へ
 
   home:
     top:
