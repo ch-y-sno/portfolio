@@ -6,4 +6,9 @@ module ApplicationHelper
     else "text-yellow-800 bg-yellow-50 dark:text-yellow-400"
     end
   end
+
+  def page_title(title = "")
+    base_title = "app_name"
+    title.present? ? "#{title} - #{base_title}" : base_title
+  end
 end

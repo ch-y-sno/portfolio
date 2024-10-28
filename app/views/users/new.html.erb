@@ -1,3 +1,4 @@
+<% content_for(:title, t('.title')) %>
 <%= form_with model: @user do |f| %>
   <div>
     <%= render 'shared/error_messages', object: f.object %>
