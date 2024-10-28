@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   def index
     @article = Article.new
     @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: :true).includes(:user).order(created_at: :desc)
+    @articles = @q.result(distinct: :true).includes(:user).order(created_at: :desc).page(params[:page])
     @topics = current_user.topics.order(created_at: :desc)
     @team = current_user.team
   end
