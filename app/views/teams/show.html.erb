@@ -24,6 +24,17 @@
           <%= link_to t('.to_member_wanted'), new_team_member_request_path(@team), class: "mb-4 text-white bg-purple-400 hover:bg-purple-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-400 dark:hover:bg-purple-500" %>
           <p class="mr-5 text-xl font-medium tracking-tight text-gray-900 dark:text-white sm:ml-8"><%= t('.notice') %></p>
           <div class="mb-2 border-t border-gray-700 dark:border-white w-full"></div>
+          <% if @articles.present? %>
+            <div class="w-full">
+            <%= render 'articles/search_form', q: @q, url: team_path(@team) %>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <%= render partial: 'articles/article', collection: @articles %>
+            </div>
+            <%= paginate @articles %>
+          <% else %>
+            <div class="mb-3">過去の投稿がありません</div>
+          <% end %>
         </div>
       </div>
     </div>

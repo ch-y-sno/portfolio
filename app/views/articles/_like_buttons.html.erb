@@ -1,0 +1,7 @@
+<div class='ms-auto'>
+  <% if current_user.article_like?(article) %>
+    <%= render 'articles/unlike', { article: article } %>
+  <% else %>
+    <%= render 'articles/like', { article: article } %>
+  <% end %>
+</div>

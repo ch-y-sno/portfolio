@@ -1,5 +1,5 @@
-<%= search_form_for @q, url: home_path, class: "mb-2" do |f| %>
-  <div class="flex">    
+<%= search_form_for q, url: url, class: "mb-2" do |f| %>
+  <div class="flex">
     <div class="flex w-1/2">
       <%= f.search_field :caption_or_topic_title_or_comments_user_first_name_or_comments_user_last_name_or_comments_body_cont, class: "block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-s-lg border-e-gray-50 border-e-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500", placeholder: t('defaults.search.placeholder') %>
       <button type="submit", class="top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >
@@ -15,7 +15,7 @@
     <% end %>
   </div>
   <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
-    <%= search_form_for @q, url: home_path, class: "items-center mt-2" do |f| %>   
+    <%= search_form_for @q, url: article_likes_path, class: "items-center mt-2" do |f| %>
       <div class="grid grid-cols-4 w-full gap-2.5 mb-2">
         <%= f.search_field :topic_title_cont, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: t('defaults.topic') %>
         <%= f.search_field :caption_cont, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: t('defaults.caption') %>

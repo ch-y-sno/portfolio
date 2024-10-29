@@ -1,10 +1,9 @@
-<%= render 'search_user_works' %>
-<%# 過去の記事のギャラリー表示　%>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  <% if @articles.present? %>
-    <%= render partial: 'articles/article_wo_fullname', locals: { article: @article } %>
-  <% else %>
-    <div class="mb-3">過去の投稿がありません</div>
-  <% end %>
-</div>
-<%= paginate @articles %>
+<% if @my_articles.present? %>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <%= render 'articles/search_form', q: @q, url: home_path %>
+    <%= render partial: 'articles/my_article', locals: { article: @article } %>
+  </div>
+  <%= paginate @my_articles %>
+<% else %>
+  <div class="mb-3">過去の投稿がありません</div>
+<% end %>

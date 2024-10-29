@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "like-button-for-article-#{@article.id}" do %>
+  <%= render 'articles/unlike', article: @article %>
+<% end %>

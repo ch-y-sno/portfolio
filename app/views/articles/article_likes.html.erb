@@ -1,0 +1,11 @@
+<div class="grid mx-auto mt-8">
+<%= render 'articles/search_form', q: @q, url: article_likes_articles_path %>
+<% if @like_articles.present? %>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <%= render partial: 'article', collection: @like_articles %>
+  </div>
+  <%= paginate @like_articles %>
+<% else %>
+  <p class="mb-3 dark:text-white"><%= t('.no_result') %></p>
+<% end %>
+</div>

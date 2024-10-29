@@ -24,6 +24,8 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @team_leader = User.find(@team.leader_user_id)
     @team_members = @team.users
+    @q = Article.ransack(params[:q])
+    @articles = @q.result(distinct: :true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def edit

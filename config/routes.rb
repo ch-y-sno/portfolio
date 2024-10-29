@@ -13,8 +13,11 @@ Rails.application.routes.draw do
 
   resources :articles, only: %i[index new create edit update show destroy upload_image] do
     resources :comments, only: %i[create edit destroy update], shallow: true
+    collection do
+      get :article_likes
+    end
   end
-
+  resources :article_likes, only: %i[create destroy]
   resources :teams, only: %i[new index create show edit update] do
     resources :members, only: %i[index]
     resources :member_requests, only: %i[new create delete show update]
