@@ -51,6 +51,11 @@ class ArticlesController < ApplicationController
     render :new
   end
 
+  def article_likes
+    @q = current_user.like_articles.ransack(params[:q])
+    @like_articles = @q.result(distinct: :true).includes(:user).order(created_at: :desc).page(params[:page])
+  end
+
   private
 
   def article_params

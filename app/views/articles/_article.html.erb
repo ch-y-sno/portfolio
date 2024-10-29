@@ -1,35 +1,33 @@
-<% @articles.each do |article| %>
-  <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <div id="article-id-<%= article.id %>">
-      <%= link_to image_tag(article.article_image.url), article_path(article), class: "rounded-t-lg" %>
-      <div class='p-5'>
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          <%= link_to 'topic_title', '#' %>
-        </h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          <%= article.user.decorate.full_name %>
-        </p>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          <%= l article.created_at, format: :short %>
-        </p>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          <%= article.caption %>
-        </p>
-        <% if current_user.own?(article) %>
-          <div class='ms-auto'>
-            <%= link_to edit_article_path(article), id: "button-edit-#{article.id}" do %>
-              <i class="fa-solid fa-pen-to-square"></i>
-            <% end %>
-            <%= link_to article_path(article), id: "button-delete-#{article.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
-              <i class="fa-solid fa-trash"></i>
-            <% end %>
-          </div>
-        <% else %>
-          <div class="text-xl flex justify-end text-teal-400">
-            <%= render 'articles/like_buttons', { article: article } %>
-          </div>
-        <% end %>
-      </div>
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <div id="article-id-<%= article.id %>">
+    <%= link_to image_tag(article.article_image.url), article_path(article), class: "rounded-t-lg" %>
+    <div class='p-5'>
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <%= link_to 'topic_title', '#' %>
+      </h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        <%= article.user.decorate.full_name %>
+      </p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        <%= l article.created_at, format: :short %>
+      </p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        <%= article.caption %>
+      </p>
+      <% if current_user.own?(article) %>
+        <div class='ms-auto'>
+          <%= link_to edit_article_path(article), id: "button-edit-#{article.id}" do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          <%= link_to article_path(article), id: "button-delete-#{article.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="text-xl flex justify-end text-teal-400">
+          <%= render 'articles/like_buttons', { article: article } %>
+        </div>
+      <% end %>
     </div>
   </div>
-<% end %>
+</div>
