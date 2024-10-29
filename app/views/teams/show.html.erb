@@ -29,7 +29,7 @@
             <%= render 'articles/search_form', q: @q, url: team_path(@team) %>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <%= render @articles %>
+              <%= render partial: 'articles/article', collection: @articles %>
             </div>
             <%= paginate @articles %>
           <% else %>
