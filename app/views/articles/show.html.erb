@@ -16,6 +16,10 @@
               <i class="fa-solid fa-trash"></i>
             <% end %>
           </div>
+        <% else %>
+          <div class="text-2xl flex justify-end mx-2 text-teal-400">
+            <%= render 'articles/like_buttons', { article: @article } %>
+          </div>
         <% end %>
       </div>
       <%= image_tag @article.article_image.url, class: 'block w-full', width: "300", height: "200" %>

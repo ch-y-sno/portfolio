@@ -25,7 +25,9 @@
             <% end %>
           </div>
         <% else %>
-          <%= render 'articles/like_buttons', { article: article } %>
+          <div class="text-xl flex justify-end text-teal-400">
+            <%= render 'articles/like_buttons', { article: article } %>
+          </div>
         <% end %>
       </div>
     </div>
