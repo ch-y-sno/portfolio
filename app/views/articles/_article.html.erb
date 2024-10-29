@@ -15,6 +15,18 @@
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
           <%= article.caption %>
         </p>
+        <% if current_user.own?(article) %>
+          <div class='ms-auto'>
+            <%= link_to edit_article_path(article), id: "button-edit-#{article.id}" do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+            <%= link_to article_path(article), id: "button-delete-#{article.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
+        <% else %>
+          <%= render 'articles/like_buttons', { article: article } %>
+        <% end %>
       </div>
     </div>
   </div>

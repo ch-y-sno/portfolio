@@ -99,6 +99,11 @@ ja:
       file_field_label: 画像を変更する
     show:
       title: "お題: %{item} への投稿"
+    new:
+      title: 作品を投稿する
+    article_likes:
+      title: いいねした作品一覧
+      no_result: いいねした作品がありません
     
   comments:
     comment:
@@ -159,6 +164,12 @@ ja:
     user_posted_topics_list:
       destroy: 削除
       edit: 編集
+
+  article_likes:
+    create:
+      success: いいねしました
+    destroy:
+      success: いいねを外しました
 
   header:
     login: ログイン

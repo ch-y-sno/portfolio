@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   def index
     @q = Article.ransack(params[:q])
     @articles = @q.result(distinct: :true).includes(:user).order(created_at: :desc).page(params[:page])
+    @my_articles = current_user.articles.ransack(params[:q]).result(distinct: :true).order(created_at: :desc).page(params[:page])
     @topics = current_user.topics.order(created_at: :desc)
   end
 

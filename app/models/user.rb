@@ -42,11 +42,25 @@ class User < ApplicationRecord
   has_one :member_request
   belongs_to :team, optional: true
   has_many :comments, dependent: :destroy
+  has_many :article_likes, dependent: :destroy
+  has_many :like_articles, through: :article_likes, source: :article
 
   mount_uploader :avatar, AvatarUploader
 
   def own?(object)
     id == object&.user_id
+  end
+
+  def article_like(article)
+    like_articles << article
+  end
+
+  def article_unlike(article)
+    like_articles.destroy(article)
+  end
+
+  def article_like?(article)
+    like_articles.include?(article)
   end
 
   def self.ransackable_attributes(auth_object = nil)

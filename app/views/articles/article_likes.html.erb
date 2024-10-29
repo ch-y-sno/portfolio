@@ -1,0 +1,9 @@
+<%#= render 'search_user_works' %>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+  <% if @article_likes.present? %>
+    <%= render @article_likes %>
+  <% else %>
+    <p class="mb-3 dark:text-white"><%= t('.no_result') %></p>
+  <% end %>
+</div>
+<%#= paginate @articles %>
