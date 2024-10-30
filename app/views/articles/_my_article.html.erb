@@ -1,18 +1,16 @@
-<% @my_articles.each do |article| %>
-  <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <div id="article-id-<%= article.id %>">
-      <%= link_to image_tag(article.article_image.url), article_path(article), class: "rounded-t-lg" %>
-      <div class='p-5'>
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          <%= link_to 'topic_title', '#' %>
-        </h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          <%= l article.created_at, format: :short %>
-        </p>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          <%= article.caption %>
-        </p>
-      </div>
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <div id="my-article-id-<%= my_article.id %>">
+    <%= link_to image_tag(my_article.article_image.url), article_path(my_article), class: "rounded-t-lg" %>
+    <div class='p-5'>
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <%= link_to 'topic_title', '#' %>
+      </h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        <%= l my_article.created_at, format: :short %>
+      </p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        <%= my_article.caption %>
+      </p>
     </div>
   </div>
-<% end %>
+</div>

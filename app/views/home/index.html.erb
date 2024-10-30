@@ -6,6 +6,6 @@
   </div>
   <div>
     <h5 class="text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">過去の作品</h5>
-    <%= render 'articles/user_works' %>
+    <%= render partial: 'articles/user_works', collection: @my_articles %>
   </div>
 </div>
