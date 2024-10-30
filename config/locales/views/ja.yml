@@ -101,6 +101,7 @@ ja:
       title: "お題: %{item} への投稿"
     new:
       title: 作品を投稿する
+      topic: "お題: %{item} への投稿"
     article_likes:
       title: いいねした作品一覧
       no_result: いいねした作品がありません
@@ -164,6 +165,8 @@ ja:
     user_posted_topics_list:
       destroy: 削除
       edit: 編集
+    topic:
+      to_new_team_topic_article_path: 投稿する
 
   article_likes:
     create:

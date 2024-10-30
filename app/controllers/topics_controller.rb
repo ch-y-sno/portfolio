@@ -39,6 +39,11 @@ class TopicsController < ApplicationController
     @topic.destroy!
   end
 
+  def index
+    @team = Team.find(params[:id])
+    @topics = @team.topicss
+  end
+
 
   private
 

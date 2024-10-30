@@ -1,0 +1,31 @@
+<div class="grid gap-4 border rounded-lg p-3">
+  <div id="topic-id-<%= topic.id %>">
+    <% if topic.articles == @team.users.count %>
+      <div>
+        <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" alt="">
+      </div>
+      <div class="grid grid-cols-5 gap-4">
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
+        </div>
+        <div>
+          <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
+        </div>
+      </div>
+    <% else %>
+      <div class="mb-3">
+        <p class="mb-3 dark:text-white">お題: <%= topic.title %></p>
+        <%= link_to t('.to_new_team_topic_article_path'), new_team_topic_article_path(@team, topic), class: "text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm px-8 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+      </div>
+    <% end %>
+  </div>
+</div>
