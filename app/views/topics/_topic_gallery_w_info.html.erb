@@ -1,9 +1,31 @@
 <% topic_articles.each do |topic_article| %>
-<div class="grid grid-cols-5 gap-4">
-  <div>
-    <%= link_to image_tag(topic_article.article_image.url), article_path(topic_article), class: "h-auto max-w-full rounded-lg" %>
-    <%= topic_article.user.decorate.full_name %>
-    <%= topic_article.article_likes.count %>
+  <div class="grid grid-cols-5 gap-4">
+    <div>
+      <%= link_to image_tag(topic_article.article_image.url), article_path(topic_article), class: "h-auto max-w-full rounded-lg" %>
+      <p class="text-gray-900 dark:text-white"><%= topic_article.user.decorate.full_name %></p>
+      <% if current_user.own?(topic_article) %>
+        <div class='flex justify-between'>
+          <div>
+            <%= link_to edit_article_path(topic_article), id: "button-edit-#{topic_article.id}" do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+            <%= link_to article_path(topic_article), id: "button-delete-#{topic_article.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
+          <div class="flex">
+            <p class="text-teal-400">
+              <i class="fa-solid fa-heart"></i>
+            </p>
+            <p class="text-gray-500 dark:text-white mx-1"><%= topic_article.article_likes.count %></p>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="text-xl flex justify-end text-teal-400">
+        <%= render 'articles/like_buttons', { article: topic_article } %>
+      </div>
+    <% end %>
   </div>
 </div>
 <% end %>

@@ -1,3 +1,6 @@
 <%= link_to article_likes_path(article_id: article.id), id: "like-button-for-article-#{article.id}", data: { turbo_method: :post } do %>
-  <i class="fa-regular fa-heart"></i>
+  <div class="flex">
+  <p><i class="fa-regular fa-heart"></i></p>
+  <p class="flex text-gray-500 dark:text-white mx-1"><%= article.article_likes.count %></p>
+  </div>
 <% end %>
