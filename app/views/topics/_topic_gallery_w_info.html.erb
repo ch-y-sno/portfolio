@@ -1,0 +1,9 @@
+<% topic_articles.each do |topic_article| %>
+<div class="grid grid-cols-5 gap-4">
+  <div>
+    <%= link_to image_tag(topic_article.article_image.url), article_path(topic_article), class: "h-auto max-w-full rounded-lg" %>
+    <%= topic_article.user.decorate.full_name %>
+    <%= topic_article.article_likes.count %>
+  </div>
+</div>
+<% end %>

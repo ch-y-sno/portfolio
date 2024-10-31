@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resource :profile, only: %i[show update edit]
 
-  resources :articles, only: %i[index new create edit update show destroy upload_image] do
+  resources :articles, only: %i[index edit update show destroy upload_image] do
     resources :comments, only: %i[create edit destroy update], shallow: true
     collection do
       get :article_likes
@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   resources :teams, only: %i[new index create show edit update] do
     resources :members, only: %i[index]
     resources :member_requests, only: %i[new create delete show update]
-    resources :topics, only: %i[new create destroy edit update]
+    resources :topics, only: %i[new create destroy edit update index show] do
+      resources :articles, only: %i[new create]
+    end
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

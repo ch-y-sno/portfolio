@@ -3,7 +3,7 @@
     <%= link_to image_tag(article.article_image.url), article_path(article), class: "rounded-t-lg" %>
     <div class='p-5'>
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        <%= link_to 'topic_title', '#' %>
+        <%= link_to article.topic.title, team_topic_path(article.user.team, article.topic) %>
       </h5>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
         <%= article.user.decorate.full_name %>

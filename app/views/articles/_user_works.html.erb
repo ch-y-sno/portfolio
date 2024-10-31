@@ -1,7 +1,7 @@
 <% if @my_articles.present? %>
+  <%= render 'articles/search_form', q: @q, url: home_path %>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <%= render 'articles/search_form', q: @q, url: home_path %>
-    <%= render partial: 'articles/my_article', locals: { article: @article } %>
+    <%= render partial: 'articles/my_article', collection: @my_articles %>
   </div>
   <%= paginate @my_articles %>
 <% else %>

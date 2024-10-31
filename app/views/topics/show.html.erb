@@ -1,0 +1,10 @@
+    <div class="flex flex-col w-screen justify-center">
+    <h5 class="mb-3 dark:text-white">お題: <%= @topic.title %></h5>
+      <div class="mb-2">
+        <%= link_to image_tag(articles_sorted_by_likes(@topic.articles).first.article_image.url), article_path(articles_sorted_by_likes(@topic.articles).first), class: "h-auto max-w-full rounded-lg" %>
+          <%= articles_sorted_by_likes(@topic.articles).first.user.decorate.full_name %>
+          <%= articles_sorted_by_likes(@topic.articles).first.article_likes.count %>
+      </div>
+      <%= render partial: 'topics/topic_gallery_w_info', locals: { topic_articles: articles_sorted_by_likes(@topic.articles).drop(1) } %>
+      <%= paginate @topic_articles %>
+    </div>

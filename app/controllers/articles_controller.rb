@@ -9,14 +9,17 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
     @article_image = session[:uploaded_file]
+    @topic = Topic.find(params[:topic_id])
+    @team = Team.find(params[:team_id])
   end
 
   def create
+    @team = current_user.team
     @article = current_user.articles.build(article_params)
     if @article.save
-      redirect_to home_path, success: t("defaults.flash_message.created", item: Article.model_name.human)
+      redirect_to team_path(@team), success: t("defaults.flash_message.created", item: Article.model_name.human)
     else
-      flash.now[:danger] = t("defaults.flash_message.not_created", item: Article.model_name.human)
+      flashs.now[:danger] = t("defaults.flash_message.not_created", item: Article.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
@@ -59,6 +62,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:caption, :article_image, :article_image_cache)
+    params.require(:article).permit(:caption, :article_image, :article_image_cache).merge(topic_id: params[:topic_id])
   end
 end
