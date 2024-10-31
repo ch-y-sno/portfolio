@@ -44,6 +44,11 @@ class TopicsController < ApplicationController
     @topics = @team.topicss
   end
 
+  def show
+    @topic = Topic.find(params[:id])
+    @topic_articles = @topic.articles.page(params[:page])
+  end
+
 
   private
 

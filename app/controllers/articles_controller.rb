@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
     @article = Article.new
     @article_image = session[:uploaded_file]
     @topic = Topic.find(params[:topic_id])
+    @team = Team.find(params[:team_id])
   end
 
   def create
@@ -18,7 +19,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to team_path(@team), success: t("defaults.flash_message.created", item: Article.model_name.human)
     else
-      flash.now[:danger] = t("defaults.flash_message.not_created", item: Article.model_name.human)
+      flashs.now[:danger] = t("defaults.flash_message.not_created", item: Article.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
