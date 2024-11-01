@@ -51,6 +51,10 @@ class User < ApplicationRecord
     id == object&.user_id
   end
 
+  def belongs_to_the_team?(team)
+    team_id == team&.id
+  end
+
   def article_like(article)
     like_articles << article
   end

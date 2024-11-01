@@ -11,6 +11,22 @@
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
         <%= my_article.caption %>
       </p>
+      <div class='flex justify-between'>
+        <div class="flex">
+        <%= link_to edit_article_path(my_article), id: "button-edit-#{my_article.id}" do %>
+          <i class="fa-solid fa-pen-to-square"></i>
+        <% end %>
+        <%= link_to article_path(my_article), id: "button-delete-#{my_article.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+        </div>
+        <div class="flex">
+          <p class="text-teal-400">
+            <i class="fa-solid fa-heart"></i>
+          </p>
+          <p class="text-gray-500 dark:text-white mx-1"><%= my_article.article_likes.count %></p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

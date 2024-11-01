@@ -5,10 +5,30 @@
       <div class="mb-2">
         <%= link_to image_tag(articles_sorted_by_likes(topic.articles).first.article_image.url), article_path(articles_sorted_by_likes(topic.articles).first), class: "h-auto max-w-full rounded-lg" %>
       </div>
+      <% if current_user.own?(articles_sorted_by_likes(topic.articles).first) %>
+        <div class='ms-auto'>
+          <%= link_to edit_article_path(articles_sorted_by_likes(topic.articles).first), id: "button-edit-#{articles_sorted_by_likes(topic.articles).first.id}" do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          <%= link_to article_path(articles_sorted_by_likes(topic.articles).first), id: "button-delete-#{articles_sorted_by_likes(topic.articles).first.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+        <div class="flex">
+          <p class="text-teal-400">
+            <i class="fa-solid fa-heart"></i>
+          </p>
+          <p class="text-gray-500 dark:text-white mx-1"><%= topic_article.article_likes.count %></p>
+        </div>
+      <% else %>
+        <div class="text-xl flex justify-end text-teal-400">
+          <%= render 'articles/like_buttons', { article: articles_sorted_by_likes(topic.articles).first } %>
+        </div>
+      <% end %>
       <%= render partial: 'topics/topic_gallery', locals: { topic_articles: articles_sorted_by_likes(topic.articles).drop(1) } %>
       <%= paginate @topics %>
     <% else %>
-      <div class="mb-3">      
+      <div class="mb-3">
         <% if current_user.articles.find_by(topic_id: topic.id).nil? %>
           <%= link_to t('.to_new_team_topic_article_path'), new_team_topic_article_path(@team, topic), class: "text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm px-8 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
         <% end %>

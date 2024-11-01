@@ -53,7 +53,10 @@
                 <%= f.label :note, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
                 <%= f.text_area :note, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500", placeholder: t('activerecord.attributes.team.note_placeholder') %>
               </div>
-              <%= f.submit nil, class: "mb-4 text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+              <div class="w-1/2 grid gap-6 mb-6 md:grid-cols-2">
+                <%= f.submit nil, class: "block flex justify-center items-center  text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-3 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
+                <%= link_to t('defaults.cancel'), teams_path, class: "block flex justify-center items-center text-white bg-gray-400 hover:bg-gray-500 focus:outline-none font-medium rounded-lg text-sm px-5 py-3 text-center dark:bg-gray-400 dark:hover:bg-gray-500" %>
+              </div>
             </div>
           </div>
         </div>
