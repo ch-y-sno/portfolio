@@ -45,6 +45,8 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "faker"
+
+  gem "rspec-rails"
 end
 
 group :development do
