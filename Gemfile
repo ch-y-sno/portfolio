@@ -82,5 +82,3 @@ gem "carrierwave", "2.2.2"
 gem "ransack"
 
 gem "kaminari"
-
-gem "mini_magick"
