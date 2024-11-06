@@ -39,7 +39,7 @@ class User < ApplicationRecord
 
   has_many :articles, dependent: :destroy
   has_many :topics, dependent: :destroy
-  has_one :member_request
+  has_many :member_requests
   belongs_to :team, optional: true
   has_many :comments, dependent: :destroy
   has_many :article_likes, dependent: :destroy

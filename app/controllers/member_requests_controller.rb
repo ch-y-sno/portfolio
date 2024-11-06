@@ -1,18 +1,29 @@
 class MemberRequestsController < ApplicationController
   def new
-    @team = Team.find(params[:team_id])
+    @team = Team.includes(:users).find(params[:team_id])
     @team_leader = User.find(@team.leader_user_id)
     @availability = @team.max_members - @team.users.count
     @member_request = MemberRequest.new
   end
 
   def create
-    @team = Team.find(params[:team_id])
+    @team = Team.includes(:users).find(params[:team_id])
     @team_leader = User.find(@team.leader_user_id)
-    if current_user.member_request.present?
-      redirect_to team_path(@team), danger: t("defaults.flash_message.one_request_only")
+    if current_user.member_requests.present?
+      if current_user.member_requests.last.approval_status == "rejected"
+        @member_request = current_user.member_requests.build(member_request_params)
+        @member_request.approval_status = 0
+        if @member_request.save
+          redirect_to team_path(@team), success: t("defaults.flash_message.requested", item: @team.name)
+        else
+          flash.now[:danger] = t("defaults.flash_message.request_failed", item: @team.name)
+          render :new, status: :unprocessable_entity
+        end
+      else
+        redirect_to team_path(@team), danger: t("defaults.flash_message.one_request_only")
+      end
     else
-      @member_request = current_user.build_member_request(member_request_params)
+      @member_request = current_user.member_requests.build(member_request_params)
       @member_request.approval_status = 0
       if @member_request.save
         redirect_to team_path(@team), success: t("defaults.flash_message.requested", item: @team.name)
@@ -32,7 +43,7 @@ class MemberRequestsController < ApplicationController
   def update
     @team = Team.find(params[:team_id])
     @member_request = MemberRequest.find(params[:id])
-    @requester = @member_request.user
+    @requester = @member_request.user.includes(:user)
     if @member_request.update(member_request_params)
       if @member_request.approved?
         @requester.update(team_id: @team.id)

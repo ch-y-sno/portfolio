@@ -43,6 +43,10 @@ ja:
       member_request:
         message_from_requester: チームリーダーにメッセージを送りましょう！
         message_placeholder: よろしくお願いします
+        approval_status:
+          pending: "検討中です"
+          approved: "承認されました"
+          rejected: "拒否されました"
 
       topic:
         title: お題

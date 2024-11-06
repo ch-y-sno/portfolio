@@ -15,6 +15,7 @@ ja:
     delete_confirm: 削除しますか？
     post: 投稿する
     cancel: キャンセル
+    select: 選択してください
     private: 非公開
     comment: コメント
     topic: お題
@@ -60,7 +61,14 @@ ja:
       title: マイページ
       new: 投稿する
       topics: 投稿したお題一覧
+      no_result: 投稿したお題がありません
       user_works: 過去の作品
+      not_belongs_to_team_yet: まだチームに所属していません。チームを作るか参加申請してみましょう！
+      member_request_status: メンバー申請承認状況
+      member_request_result: "チーム「%{item}」への申請の承認状況： "
+      notice: お知らせ
+      approved: "※チーム「%{item}」に所属しています。since: "
+      message_from_approver: "チームリーダーからのメッセージ: %{item}"
 
   user_sessions:
     new:
@@ -159,6 +167,7 @@ ja:
       message_to_requester: "%{item}さんにメッセージを送りましょう！"
       decide: 決定する
     approval_status:
+      pending: 検討中
       approved: 承認
       rejected: 拒否
   
