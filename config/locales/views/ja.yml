@@ -105,6 +105,8 @@ ja:
     article_likes:
       title: いいねした作品一覧
       no_result: いいねした作品がありません
+    user_works:
+      no_result: 過去の投稿がありません
     
   comments:
     comment:
