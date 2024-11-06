@@ -1,11 +1,20 @@
 <% content_for(:title, t('.title')) %>
 <div class='flex-col'>
   <div class="mb-10">
-    <h5 class="text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">投稿したお題一覧</h5>
-    <%= render 'topics/user_posted_topics_list' %>
-  </div>
-  <div>
-    <h5 class="text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">過去の作品</h5>
-    <%= render partial: 'articles/user_works' %>
+    <h5 class="text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= t('.topics') %></h5>
+    <div>
+      <% if @topics.present? %>
+        <%= render 'topics/user_posted_topics_list' %>
+        <%= paginate @topics, param_name: 'topics' %>
+      <% else %>
+        <p class="mb-3">
+          <%= t('.no_result') %>
+        </p>
+      <% end %>
+    </div>
+    <div>
+      <h5 class="text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= t('.user_works') %></h5>
+      <%= render partial: 'articles/user_works' %>
+    </div>
   </div>
 </div>

@@ -3,7 +3,7 @@
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
     <%= render partial: 'articles/article', collection: @my_articles %>
   </div>
-  <%= paginate @my_articles %>
+  <%= paginate @my_articles, param_name: 'my_articles' %>
 <% else %>
   <p class="mb-3">
     <%= t('.no_result') %>

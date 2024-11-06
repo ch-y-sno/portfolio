@@ -59,6 +59,8 @@ ja:
     index:
       title: マイページ
       new: 投稿する
+      topics: 投稿したお題一覧
+      user_works: 過去の作品
 
   user_sessions:
     new:

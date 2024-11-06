@@ -5,9 +5,11 @@
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         <%= link_to article.topic.title, team_topic_path(article.user.team, article.topic) %>
       </h5>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-        <%= article.user.decorate.full_name %>
-      </p>
+      <% unless current_user.own?(article) %>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <%= article.user.decorate.full_name %>
+        </p>
+      <% end %>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
         <%= l article.created_at, format: :short %>
       </p>
@@ -22,6 +24,12 @@
           <%= link_to article_path(article), id: "button-delete-#{article.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
             <i class="fa-solid fa-trash"></i>
           <% end %>
+        </div>
+        <div class="text-xl flex justify-end text-teal-400">
+          <div class="flex">
+            <p><i class="fa-solid fa-heart"></i></p>
+            <p class="text-gray-500 dark:text-white mx-1"><%= article.article_likes.count %></p>
+          </div>
         </div>
       <% else %>
         <div class="text-xl flex justify-end text-teal-400">

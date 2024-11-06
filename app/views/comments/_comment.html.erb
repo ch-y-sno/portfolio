@@ -12,9 +12,7 @@
     </div>
     <% if current_user.own?(comment) %>
       <button id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots-<%= comment.id %>" data-dropdown-placement="bottom-start" class="inline-flex self-center items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 dark:focus:ring-gray-600" type="button">
-        <span class="w-4 h-4 text-gray-500 dark:text-gray-400" >
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </span>
+        <i class="fa-solid fa-ellipsis-vertical"></i>
       </button>
       <div id="dropdownDots-<%= comment.id %>" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 dark:divide-gray-600">
         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
