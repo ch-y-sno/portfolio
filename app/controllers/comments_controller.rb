@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def create
-    @comment = current_user.comments.build(comment_params)
+    @comment = current_user.comments.includes(:article).build(comment_params)
     @comment.save
   end
 
@@ -10,11 +10,11 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = current_user.comments.find(params[:id])
+    @comment = current_user.comments.includes(:user, :article).find(params[:id])
   end
 
   def update
-    @comment = current_user.comments.find(params[:id])
+    @comment = current_user.comments.includes(:user, :article).find(params[:id])
     if @comment.update(comment_params.merge(article_id: @comment.article_id))
       redirect_to article_path(@comment.article)
     else
