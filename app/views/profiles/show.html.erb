@@ -39,10 +39,10 @@
               </div>
               <div class="w-full">
                 <label class="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">
-                  <%= User.human_attribute_name(:gender) %>
+                  <%= t("activerecord.attributes.user.gender_label") %>
                 </label>
                 <p class="h-10 bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 ">
-                  <%= current_user.gender %>
+                  <%= t("activerecord.attributes.user.gender.#{current_user.gender}") %>
                 </p>
               </div>
             </div>
@@ -58,12 +58,12 @@
               <label class="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">
                 <%= User.human_attribute_name(:bio) %>
               </label>
-            <textarea disabled rows="4" class="block p-2.5 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg border border-indigo-300 focus:ring-indigo-500 focus:border-indigo-500 ">
+              <textarea disabled rows="4" class="block p-2.5 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg border border-indigo-300 focus:ring-indigo-500 focus:border-indigo-500 ">
               <%= current_user.bio %>
             </textarea>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
-</div>
+    </main>
+  </div>

@@ -11,7 +11,7 @@
           <div class="grid max-w-2xl mx-auto mt-8">
             <div class="flex flex-col justify-center items-center space-y-5 sm:flex-row sm:space-y-0">
               <%= image_tag @user.avatar.url,
-                              class: 'object-cover w-50 h-50 p-1 rounded-full ring-2 ring-teal-500 dark:ring-teal-400',
+                              class: 'object-cover p-1 rounded-full ring-2 ring-teal-500 dark:ring-teal-400',
                               id: 'preview',
                               size: '200x200' %>
               <div class="flex flex-col space-y-5 sm:ml-8">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="w-full h-full">
                   <%= f.label :gender, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>
-                  <%= f.text_field :gender, class: "bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" %>
+                  <%= f.select :gender, User.genders.keys.map { |k| [t("users.gender.#{k}"), k]}, { include_blank: t('defaults.select')} , { class: "bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" } %>
                 </div>
               </div>
               <div class="mb-2 sm:mb-6">

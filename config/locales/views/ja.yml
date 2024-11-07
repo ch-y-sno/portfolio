@@ -94,6 +94,9 @@ ja:
       fail: ユーザー登録に失敗しました
     show:
       title: "【ユーザー詳細】%{item} さん"
+    gender:
+      male: 男性
+      female: 女性
   
   profiles:
     show:
@@ -204,7 +207,7 @@ ja:
     contact: お問い合わせ
 
   sidebar:
-    to_profile_page: プロフィール
+    to_profile_page: マイプロフィール
     to_delete_account_page: アカウント削除
 
   error:

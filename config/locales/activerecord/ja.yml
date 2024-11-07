@@ -1,5 +1,10 @@
 ja:
   activerecord:
+    enum:
+      gender:
+        male: 男性
+        female: 女性
+        
     models:
       user: ユーザー
       article: 投稿
@@ -19,7 +24,10 @@ ja:
         password_placeholder: "********"
         full_name: 氏名
         age: 年齢
-        gender: 性別
+        gender:
+          male: 男性
+          female: 女性
+        gender_label: 性別   
         bio: 自己紹介
 
       article:
