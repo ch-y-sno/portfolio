@@ -11,6 +11,7 @@ ja:
       comment: コメント
       member_request: メンバー申請
       topic: お題
+      team: チーム
 
     attributes:
       user:

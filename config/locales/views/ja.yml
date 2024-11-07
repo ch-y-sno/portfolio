@@ -133,6 +133,7 @@ ja:
     index:
       title: チーム一覧
       new: チームを作成する
+      no_result: まだチームがありません。作成してみましょう！
     show:
       title: "【チーム詳細】%{item}"
       notice: チームのお知らせ

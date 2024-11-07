@@ -33,7 +33,6 @@ class Team < ApplicationRecord
   has_many :topics
   has_many :users
   has_many :member_requests
-  belongs_to :team_leader, class_name: "User", foreign_key: "leader_user_id", optional: true
 
   mount_uploader :team_avatar, TeamAvatarUploader
 
