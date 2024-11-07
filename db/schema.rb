@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_28_063458) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_07_061307) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,15 +57,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_28_063458) do
     t.text "message_from_approver"
     t.index ["team_id"], name: "index_member_requests_on_team_id"
     t.index ["user_id"], name: "index_member_requests_on_user_id"
-  end
-
-  create_table "team_leaders", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["team_id"], name: "index_team_leaders_on_team_id"
-    t.index ["user_id"], name: "index_team_leaders_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -121,8 +112,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_28_063458) do
   add_foreign_key "comments", "users"
   add_foreign_key "member_requests", "teams"
   add_foreign_key "member_requests", "users"
-  add_foreign_key "team_leaders", "teams"
-  add_foreign_key "team_leaders", "users"
   add_foreign_key "topics", "teams"
   add_foreign_key "topics", "users"
   add_foreign_key "users", "teams"
