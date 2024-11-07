@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_07_061307) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_07_062302) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,9 +63,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_061307) do
     t.string "name", null: false
     t.text "description", null: false
     t.integer "max_members", default: 10, null: false
-    t.text "topic_order", null: false
-    t.integer "topic_frequency", null: false
-    t.time "topic_post_time", null: false
+    t.text "topic_order"
+    t.integer "topic_frequency"
+    t.time "topic_post_time"
     t.datetime "topic_post_time_manual"
     t.text "note"
     t.datetime "created_at", null: false
