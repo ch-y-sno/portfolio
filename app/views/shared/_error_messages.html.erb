@@ -6,11 +6,10 @@
     <span class="sr-only">Danger</span>
     <div>
       <span class="font-medium"><%= t('error.please_confirm') %></span>
-        <ul class="mt-1.5 list-disc list-inside">
-          <% object.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
+      <ul class="mt-1.5 list-disc list-inside">
+        <% object.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
-<% end %>
-
+  <% end %>
