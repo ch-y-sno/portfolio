@@ -20,12 +20,11 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
+    @team = Team.includes(:users).find(params[:id])
     @team_members = @team.users
     @team_leader = @team_members.find(@team.leader_user_id)
-    @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: :true).includes(:user, :topic, :article_likes).order(created_at: :desc).page(params[:page])
-    @topics = @team.topics.page(params[:page])
+    @q = Topic.ransack(params[:q])
+    @topics = @q.result(distinct: :true).includes([ { articles: :user }, { articles: { comments: :user } } ]).page(params[:topics])
   end
 
   def edit

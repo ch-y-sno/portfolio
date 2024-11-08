@@ -39,13 +39,8 @@ class TopicsController < ApplicationController
     @topic.destroy!
   end
 
-  def index
-    @team = Team.find(params[:id])
-    @topics = @team.topicss
-  end
-
   def show
-    @topic = Topic.find(params[:id])
+    @topic = Topic.includes(:articles).find(params[:id])
     @topic_articles = @topic.articles.page(params[:page])
   end
 

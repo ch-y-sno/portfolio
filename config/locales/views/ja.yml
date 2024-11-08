@@ -21,7 +21,9 @@ ja:
     topic: お題
     caption: キャプション
     user: ユーザー
+    comment_user: コメントしたユーザー
     date: 日付
+    back: 戻る
     flash_message:
       updated: "%{item}を更新しました"
       not_updated: "%{item}の更新に失敗しました"
@@ -35,8 +37,10 @@ ja:
       decided: "%{item1}さんのメンバー申請を%{item2}しました。"
       exceeds_max_members: チームの上限人数を超えるためメンバーを追加できません
     search:
-      placeholder: キャプション、コメント、コメントしたユーザーから検索できます
-      placeholder_teams: チーム名、チームの紹介、チームメンバーから検索できます
+      placeholder_for_my_articles: お題、キャプション、コメント、コメントしたユーザーから検索できます
+      placeholder_for_articles: 作成したユーザー、お題、キャプション、コメント、コメントしたユーザーから検索できます
+      placeholder_for_teams: チーム名、チームの紹介、チームメンバーから検索できます
+      placeholder_for_topics: 作成したユーザー、お題、キャプション、コメント、コメントしたユーザーから検索できます
       advanced_search: 詳細検索
       articles_created_between: 投稿日が
       teams_created_between: チーム結成日が
@@ -188,6 +192,8 @@ ja:
       edit: 編集
     topic:
       to_new_team_topic_article_path: 投稿する
+      topic_title: "お題: "
+      availability: "あと %{item} 名の投稿待ちです！"
 
   article_likes:
     create:

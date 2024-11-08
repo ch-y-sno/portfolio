@@ -1,7 +1,7 @@
-<% topic_articles.each do |topic_article| %>
-  <div class="grid grid-cols-5 gap-4">
+<div class="grid grid-cols-5 gap-4">
+  <% topic_articles.each do |topic_article| %>
     <div>
-      <%= link_to image_tag(topic_article.article_image.url), article_path(topic_article), class: "h-auto max-w-full rounded-lg" %>
+      <%= link_to image_tag(topic_article.article_image.url, class: "h-auto max-w-full rounded-lg"), article_path(topic_article) %>
       <p class="text-gray-900 dark:text-white"><%= topic_article.user.decorate.full_name %></p>
       <% if current_user.own?(topic_article) %>
         <div class='flex justify-between'>
@@ -27,5 +27,5 @@
       </div>
     <% end %>
   </div>
-</div>
 <% end %>
+</div>

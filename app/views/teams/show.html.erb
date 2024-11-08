@@ -34,9 +34,9 @@
             <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
               <%= render partial: 'topics/topic', collection: @topics %>
             </div>
-            <%= paginate @topics %>
+            <%= paginate @topics, param_name: 'topics' %>
           <% else %>
-            <div class="mb-3"><%= t('.no_result') %></div>
+            <div class="mb-3 dark:text-white"><%= t('.no_result') %></div>
           <% end %>
         </div>
       </div>
