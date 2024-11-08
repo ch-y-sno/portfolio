@@ -41,7 +41,7 @@
                   <%= f.text_field :age, class: "bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" %>
                 </div>
                 <div class="w-full h-full">
-                  <%= f.label :gender, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>
+                  <%= f.label :gender_label, class: "block mb-2 text-sm font-medium text-indigo-900 dark:text-white" %>
                   <%= f.select :gender, User.genders.keys.map { |k| [t("users.gender.#{k}"), k]}, { include_blank: t('defaults.select')} , { class: "bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" } %>
                 </div>
               </div>

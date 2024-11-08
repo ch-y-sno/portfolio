@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :article_likes, only: %i[create destroy]
   resources :teams, only: %i[new index create show edit update] do
     resources :members, only: %i[index]
-    resources :member_requests, only: %i[new create show update]
+    resources :member_requests, only: %i[new create edit update]
     resources :topics, only: %i[new create destroy edit update index show] do
       resources :articles, only: %i[new create]
     end

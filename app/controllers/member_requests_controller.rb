@@ -34,7 +34,7 @@ class MemberRequestsController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @team = Team.find(params[:team_id])
     @member_request = MemberRequest.find(params[:id])
     @requester = @member_request.user
@@ -43,12 +43,20 @@ class MemberRequestsController < ApplicationController
   def update
     @team = Team.find(params[:team_id])
     @member_request = MemberRequest.find(params[:id])
-    @requester = @member_request.user.includes(:user)
+    @no_of_team_members = @team.users.count
+    @requester = @member_request.user
     if @member_request.update(member_request_params)
       if @member_request.approved?
-        @requester.update(team_id: @team.id)
+        if @no_of_team_members == @team.max_members
+          flash.now[:danger] = t("defaults.flash_message.exceeds_max_members", item: Team.model_name.human)
+          render :edit, status: :unprocessable_entity
+        else
+          @requester.update(team_id: @team.id)
+          redirect_to team_path(@team), success: t("defaults.flash_message.decided", item1: @requester.decorate.full_name, item2: t("member_requests.approval_status.#{@member_request.approval_status}"))
+        end
+      else
+        redirect_to team_path(@team), success: t("defaults.flash_message.decided", item1: @requester.decorate.full_name, item2: t("member_requests.approval_status.#{@member_request.approval_status}"))
       end
-      redirect_to team_path(@team), success: t("defaults.flash_message.decided", item1: @requester.decorate.full_name, item2: t("member_requests.approval_status.#{@member_request.approval_status}"))
     else
       flash.now[:danger] = t("defaults.flash_message.not_updated", item: Team.model_name.human)
       render :edit, status: :unprocessable_entity

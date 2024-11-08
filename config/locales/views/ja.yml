@@ -33,6 +33,7 @@ ja:
       requested_failed: "%{item}へのメンバー申請に失敗しました"
       one_request_only: ひとつのチームにしか申請できません。すでにチームに申請または所属しています
       decided: "%{item1}さんのメンバー申請を%{item2}しました。"
+      exceeds_max_members: チームの上限人数を超えるためメンバーを追加できません
     search:
       placeholder: キャプション、コメント、コメントしたユーザーから検索できます
       placeholder_teams: チーム名、チームの紹介、チームメンバーから検索できます
@@ -140,9 +141,12 @@ ja:
       leader: チームリーダー
       to_members_room: メンバーページへ
       to_member_wanted: メンバー募集中！
+      no_result: 過去の投稿がありません
     edit:
       title: チーム管理
       file_field_label: 画像を変更する
+      no_member_requests: 現在メンバー申請は届いていません
+      no_topics: お題はまだありません
     member_request:
       title: メンバー申請一覧
   
@@ -165,7 +169,7 @@ ja:
       leader: チームリーダー
       title: メンバー申請
       request_membership: 参加申請する！
-    show:
+    edit:
       title: "%{item}さんからのメンバー申請"
       decision: "%{item}さんをチームメンバーとして承認しますか？"
       message_to_requester: "%{item}さんにメッセージを送りましょう！"

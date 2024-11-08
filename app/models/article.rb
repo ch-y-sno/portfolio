@@ -22,8 +22,7 @@ class Article < ApplicationRecord
   enum :is_winner, { participant: 0, winner: 1 }
 
   belongs_to :user
-  # will delete optional later on
-  belongs_to :topic, optional: true
+  belongs_to :topic
   has_many :comments, dependent: :destroy
   has_many :article_likes, dependent: :destroy
 

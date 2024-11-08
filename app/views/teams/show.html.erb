@@ -6,7 +6,7 @@
         <div class="grid max-w-2xl mx-auto mt-8">
           <div class="mb-5 flex flex-col justify-center items-center sm:flex-row sm:space-y-0">
             <%= image_tag @team.team_avatar.url,
-                              class: 'object-cover w-50 h-50 p-1 rounded-full ring-2 ring-teal-500 dark:ring-teal-400',
+                              class: 'thumb object-cover w-50 h-50 p-1 rounded-full ring-2 ring-teal-500 dark:ring-teal-400',
                               id: 'preview',
                               size: '200x200' %>
             <div class="flex flex-col">
@@ -22,19 +22,21 @@
           <%= render 'teams/team_members' %>
           <% if current_user.belongs_to_the_team?(@team) %>
             <%= link_to t('.to_members_room'), team_members_path(@team), class: "mb-4 text-white bg-teal-400 hover:bg-teal-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-400 dark:hover:bg-teal-500" %>
-          <% elsif applicable?(@team) %>
-            <%= link_to t('.to_member_wanted'), new_team_member_request_path(@team), class: "mb-4 text-white bg-purple-400 hover:bg-purple-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-400 dark:hover:bg-purple-500" %>
+          <% elsif current_user.team.nil? %>
+            <% if applicable?(@team) %>
+              <%= link_to t('.to_member_wanted'), new_team_member_request_path(@team), class: "mb-4 text-white bg-purple-400 hover:bg-purple-500 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-400 dark:hover:bg-purple-500" %>
+            <% end %>
           <% end %>
           <p class="mr-5 text-xl font-medium tracking-tight text-gray-900 dark:text-white sm:ml-8"><%= t('.notice') %></p>
           <div class="mb-2 border-t border-gray-700 dark:border-white w-full"></div>
           <% if @topics.present? %>
-            <%= render 'articles/search_form', q: @q, url: team_path(@team) %>
+            <%= render 'topics/search_form', q: @q, url: team_path(@team) %>
             <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
               <%= render partial: 'topics/topic', collection: @topics %>
             </div>
             <%= paginate @topics %>
           <% else %>
-            <div class="mb-3">過去の投稿がありません</div>
+            <div class="mb-3"><%= t('.no_result') %></div>
           <% end %>
         </div>
       </div>
