@@ -3,7 +3,7 @@
   <div class='flex-col'>
     <div class="mb-10">
       <h5 class="text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= t('.notice') %></h5>
-        <p class="text-gray-700 mb-5 text-md font-bold tracking-tight dark:text-white"><%= t('.approved', item: @team.name) %><%= l(@member_request&.updated_at || @team.created_at, format: :short) %></p>
+      <p class="text-gray-700 mb-5 text-md font-bold tracking-tight dark:text-white"><%= t('.approved', item: @team.name) %><%= l(@member_request&.updated_at || @team.created_at, format: :short) %></p>
       <h5 class="text-teal-500 mb-5 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= t('.topics') %></h5>
       <div>
         <% if @topics.present? %>
