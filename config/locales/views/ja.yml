@@ -194,6 +194,8 @@ ja:
       to_new_team_topic_article_path: 投稿する
       topic_title: "お題: "
       availability: "あと %{item} 名の投稿待ちです！"
+    show:
+      topic_title: "お題: %{item}"
 
   article_likes:
     create:

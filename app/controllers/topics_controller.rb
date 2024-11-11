@@ -40,7 +40,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.includes(:articles).find(params[:id])
+    @topic = Topic.includes(:articles, :team).find(params[:id])
     @topic_articles = @topic.articles.page(params[:page])
   end
 

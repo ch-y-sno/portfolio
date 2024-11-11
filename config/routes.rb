@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   post "login" => "user_sessions#create"
   delete "logout" => "user_sessions#destroy", :as => :logout
 
-  resource :profile, only: %i[show update edit]
+  resource :profile, only: %i[show destroy edit update]
 
-  resources :articles, only: %i[edit update show destroy] do
+  resources :articles, only: %i[show update destroy edit] do
     resources :comments, only: %i[create edit destroy update], shallow: true
     collection do
       get :article_likes
