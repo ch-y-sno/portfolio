@@ -2,6 +2,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
+  include ActionView::Helpers::AssetUrlHelper
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -15,7 +16,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url(*args)
-    "avatar_placeholder"
+    ActionController::Base.helpers.asset_path("avatar_placeholder.png")
   end
 
   # Process files as they are uploaded:

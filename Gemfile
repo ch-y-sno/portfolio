@@ -86,3 +86,5 @@ gem "carrierwave", "2.2.2"
 gem "ransack"
 
 gem "kaminari"
+
+gem "dockerfile-rails", ">= 1.6", group: :development

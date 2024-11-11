@@ -1,6 +1,6 @@
 ja:
   time:
-    formats:　
+    formats:
       post_time: "%p%l:%M"
   helpers:
     submit:

@@ -115,6 +115,8 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
+    dockerfile-rails (1.6.24)
+      rails (>= 3.0.0)
     draper (4.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -431,6 +433,7 @@ DEPENDENCIES
   carrierwave (= 2.2.2)
   dartsass-rails (~> 0.5.1)
   debug
+  dockerfile-rails (>= 1.6)
   draper (= 4.0.2)
   factory_bot_rails
   faker
