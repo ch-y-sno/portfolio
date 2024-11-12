@@ -15,12 +15,15 @@ ja:
     delete_confirm: 削除しますか？
     post: 投稿する
     cancel: キャンセル
+    select: 選択してください
     private: 非公開
     comment: コメント
     topic: お題
     caption: キャプション
     user: ユーザー
+    comment_user: コメントしたユーザー
     date: 日付
+    back: 戻る
     flash_message:
       updated: "%{item}を更新しました"
       not_updated: "%{item}の更新に失敗しました"
@@ -32,9 +35,12 @@ ja:
       requested_failed: "%{item}へのメンバー申請に失敗しました"
       one_request_only: ひとつのチームにしか申請できません。すでにチームに申請または所属しています
       decided: "%{item1}さんのメンバー申請を%{item2}しました。"
+      exceeds_max_members: チームの上限人数を超えるためメンバーを追加できません
     search:
-      placeholder: キャプション、コメント、コメントしたユーザーから検索できます
-      placeholder_teams: チーム名、チームの紹介、チームメンバーから検索できます
+      placeholder_for_my_articles: お題、キャプション、コメント、コメントしたユーザーから検索できます
+      placeholder_for_articles: 作成したユーザー、お題、キャプション、コメント、コメントしたユーザーから検索できます
+      placeholder_for_teams: チーム名、チームの紹介、チームメンバーから検索できます
+      placeholder_for_topics: 作成したユーザー、お題、キャプション、コメント、コメントしたユーザーから検索できます
       advanced_search: 詳細検索
       articles_created_between: 投稿日が
       teams_created_between: チーム結成日が
@@ -59,6 +65,15 @@ ja:
     index:
       title: マイページ
       new: 投稿する
+      topics: 投稿したお題一覧
+      no_result: 投稿したお題がありません
+      user_works: 過去の作品
+      not_belongs_to_team_yet: まだチームに所属していません。チームを作るか参加申請してみましょう！
+      member_request_status: メンバー申請承認状況
+      member_request_result: "チーム「%{item}」への申請の承認状況： "
+      notice: お知らせ
+      approved: "※チーム「%{item}」に所属しています。since: "
+      message_from_approver: "チームリーダーからのメッセージ: %{item}"
 
   user_sessions:
     new:
@@ -84,6 +99,9 @@ ja:
       fail: ユーザー登録に失敗しました
     show:
       title: "【ユーザー詳細】%{item} さん"
+    gender:
+      male: 男性
+      female: 女性
   
   profiles:
     show:
@@ -105,6 +123,8 @@ ja:
     article_likes:
       title: いいねした作品一覧
       no_result: いいねした作品がありません
+    user_works:
+      no_result: 過去の投稿がありません
     
   comments:
     comment:
@@ -118,15 +138,19 @@ ja:
     index:
       title: チーム一覧
       new: チームを作成する
+      no_result: まだチームがありません。作成してみましょう！
     show:
       title: "【チーム詳細】%{item}"
       notice: チームのお知らせ
       leader: チームリーダー
       to_members_room: メンバーページへ
       to_member_wanted: メンバー募集中！
+      no_result: 過去の投稿がありません
     edit:
       title: チーム管理
       file_field_label: 画像を変更する
+      no_member_requests: 現在メンバー申請は届いていません
+      no_topics: お題はまだありません
     member_request:
       title: メンバー申請一覧
   
@@ -149,12 +173,13 @@ ja:
       leader: チームリーダー
       title: メンバー申請
       request_membership: 参加申請する！
-    show:
+    edit:
       title: "%{item}さんからのメンバー申請"
       decision: "%{item}さんをチームメンバーとして承認しますか？"
       message_to_requester: "%{item}さんにメッセージを送りましょう！"
       decide: 決定する
     approval_status:
+      pending: 検討中
       approved: 承認
       rejected: 拒否
   
@@ -167,6 +192,10 @@ ja:
       edit: 編集
     topic:
       to_new_team_topic_article_path: 投稿する
+      topic_title: "お題: "
+      availability: "あと %{item} 名の投稿待ちです！"
+    show:
+      topic_title: "お題: %{item}"
 
   article_likes:
     create:
@@ -186,12 +215,12 @@ ja:
     user_info: マイプロフィール
 
   footer:
-    app_name: app_name
+    app_name: © 2024 app_name. All Rights Reserved.
     privacy_policy: プライバシーポリシー
     contact: お問い合わせ
 
   sidebar:
-    to_profile_page: プロフィール
+    to_profile_page: マイプロフィール
     to_delete_account_page: アカウント削除
 
   error:

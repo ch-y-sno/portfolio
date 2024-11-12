@@ -1,14 +1,6 @@
 class ArticlesController < ApplicationController
-  def index
-    @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: :true).includes(:user).order(created_at: :desc).page(params[:page])
-    @my_articles = current_user.articles.ransack(params[:q]).result(distinct: :true).order(created_at: :desc).page(params[:page])
-    @topics = current_user.topics.order(created_at: :desc)
-  end
-
   def new
     @article = Article.new
-    @article_image = session[:uploaded_file]
     @topic = Topic.find(params[:topic_id])
     @team = Team.find(params[:team_id])
   end
@@ -25,12 +17,12 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = current_user.articles.find(params[:id])
+    @article = current_user.articles.includes(:topic, :user).find(params[:id])
   end
 
   def update
     @article = current_user.articles.find(params[:id])
-    if @article.update(article_params)
+    if @article.update(article_update_params)
       redirect_to article_path(@article), success: t("defaults.flash_message.updated", item: Article.model_name.human)
     else
       flash.now[:danger] = t("defaults.flash_message.not_updated", item: Article.model_name.human)
@@ -39,7 +31,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.includes([ { topic: :team }, :article_likes, :user ]).find(params[:id])
+    @team = @article.user
     @comment = Comment.new
     @comments = @article.comments.includes(:user).order(created_at: :desc)
   end
@@ -48,10 +41,6 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.find(params[:id])
     @article.destroy!
     redirect_to home_path, success: t("defaults.flash_message.deleted", item: Article.model_name.human)
-  end
-
-  def upload_image
-    render :new
   end
 
   def article_likes
@@ -63,5 +52,9 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:caption, :article_image, :article_image_cache).merge(topic_id: params[:topic_id])
+  end
+
+  def article_update_params
+    params.require(:article).permit(:caption, :article_image, :article_image_cache)
   end
 end

@@ -3,12 +3,12 @@
 # Table name: teams
 #
 #  id                          :bigint           not null, primary key
-#  name                        :string           not null
+#  name                        :string           not null, unique: true
 #  description                 :text             not null
 #  max_members                 :integer          not null, default: 10
-#  topic_order                 :text             not null
-#  topic_frequency             :integer          not null
-#  topic_post_time             :time             not null
+#  topic_order                 :text
+#  topic_frequency             :integer
+#  topic_post_time             :time
 #  topic_post_time_manual      :datetime
 #  note                        :text
 #  leader_user_id              :integer
@@ -21,21 +21,18 @@
 #
 
 class Team < ApplicationRecord
-  validates :name, presence: true, length: { maximum: 255 }
+  validates :name, presence: true, length: { maximum: 255 }, uniqueness: true
   validates :description, presence: true, length: { maximum: 65_535 }
   validates :max_members, presence: true
-  validates :topic_order, presence: true
-  validates :topic_frequency, presence: true
-  validates :topic_post_time, presence: true
-  validates :topic_post_time, length: { maximum: 255 }
   validates :note, length: { maximum: 65_535 }
 
   has_many :topics
   has_many :users
-  has_many :member_requests
-  belongs_to :team_leader, class_name: "User", foreign_key: "leader_user_id", optional: true
+  has_many :member_requests, dependent: :destroy
 
   mount_uploader :team_avatar, TeamAvatarUploader
+
+  private
 
   def self.ransackable_attributes(auth_object = nil)
     [ "created_at", "description", "id", "id_value", "leader_user_id", "max_members", "name", "note", "team_avatar", "topic_frequency", "topic_order", "topic_post_time", "topic_post_time_manual", "updated_at" ]

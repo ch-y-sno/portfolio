@@ -3,11 +3,10 @@ class HomeController < ApplicationController
   def top; end
 
   def index
-    @article = Article.new
     @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: :true).includes(:user).order(created_at: :desc).page(params[:page])
-    @topics = current_user.topics.order(created_at: :desc)
+    @topics = current_user.topics.order(created_at: :desc).page(params[:topics]).per(5)
     @team = current_user.team
-    @my_articles = current_user.articles.ransack(params[:q]).result(distinct: :true).order(created_at: :desc).page(params[:page])
+    @my_articles = current_user.articles.includes([ { user: :team }, :topic, :article_likes ]).ransack(params[:q]).result(distinct: :true).order(created_at: :desc).page(params[:my_articles])
+    @member_request = current_user.member_requests.includes(:team).last
   end
 end

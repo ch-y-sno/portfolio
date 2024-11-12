@@ -19,8 +19,10 @@
             <% end %>
           </li>
           <li>
-            <%= link_to team_path(current_user.team_id), class: "block py-2 px-3 text-gray-900 text-2xl text-black dark:text-white" do %>
-              <i class="fa-solid fa-user-group"></i>
+            <% if current_user.team.present? %>
+              <%= link_to team_path(current_user.team_id), class: "block py-2 px-3 text-gray-900 text-2xl text-black dark:text-white" do %>
+                <i class="fa-solid fa-user-group"></i>
+              <% end %>
             <% end %>
           </li>
           <li>

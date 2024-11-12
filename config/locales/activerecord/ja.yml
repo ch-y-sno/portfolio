@@ -1,11 +1,17 @@
 ja:
   activerecord:
+    enum:
+      gender:
+        male: 男性
+        female: 女性
+        
     models:
       user: ユーザー
       article: 投稿
       comment: コメント
       member_request: メンバー申請
       topic: お題
+      team: チーム
 
     attributes:
       user:
@@ -19,7 +25,10 @@ ja:
         password_placeholder: "********"
         full_name: 氏名
         age: 年齢
-        gender: 性別
+        gender:
+          male: 男性
+          female: 女性
+        gender_label: 性別   
         bio: 自己紹介
 
       article:
@@ -43,6 +52,10 @@ ja:
       member_request:
         message_from_requester: チームリーダーにメッセージを送りましょう！
         message_placeholder: よろしくお願いします
+        approval_status:
+          pending: "検討中です"
+          approved: "承認されました"
+          rejected: "拒否されました"
 
       topic:
         title: お題

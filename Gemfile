@@ -45,6 +45,10 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "faker"
+
+  gem "rspec-rails"
+
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -82,3 +86,7 @@ gem "carrierwave", "2.2.2"
 gem "ransack"
 
 gem "kaminari"
+
+gem "dockerfile-rails", ">= 1.6", group: :development
+
+gem "aws-sdk-s3"

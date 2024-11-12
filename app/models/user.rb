@@ -35,11 +35,11 @@ class User < ApplicationRecord
   validates :gender, length: { maximum: 255 }
   validates :bio, length: { maximum: 65_535 }
 
-  enum gender: { male: 0, female: 1 }
+  enum :gender, { male: 0, female: 1 }
 
   has_many :articles, dependent: :destroy
   has_many :topics, dependent: :destroy
-  has_one :member_request
+  has_many :member_requests, dependent: :destroy
   belongs_to :team, optional: true
   has_many :comments, dependent: :destroy
   has_many :article_likes, dependent: :destroy

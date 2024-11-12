@@ -22,4 +22,8 @@ class Topic < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     [ "created_at", "description", "id", "id_value", "team_id", "title", "updated_at", "user_id" ]
   end
+
+  def self.ransackable_associations(auth_object = nil)
+    [ "articles", "team", "user" ]
+  end
 end

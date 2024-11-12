@@ -18,12 +18,11 @@ class Article < ApplicationRecord
   validates :is_public, presence: true
   validates :is_winner, presence: true
 
-  enum is_public: { published_article: 0, private_article: 1 }
-  enum is_winner: { participant: 0, winner: 1 }
+  enum :is_public, { published_article: 0, private_article: 1 }
+  enum :is_winner, { participant: 0, winner: 1 }
 
   belongs_to :user
-  # will delete optional later on
-  belongs_to :topic, optional: true
+  belongs_to :topic
   has_many :comments, dependent: :destroy
   has_many :article_likes, dependent: :destroy
 

@@ -68,7 +68,7 @@
       <% if @member_requests.present? %>
         <%= render 'teams/member_request' %>  
       <% else %>
-        <div class="mb-3">現在メンバー申請は届いていません</div>
+        <div class="mb-3 dark:text-white"><%= t('.no_member_requests') %></div>
       <% end %>
     </div>
     <div>
@@ -76,7 +76,7 @@
       <% if @topics.present? %>
         <%= render 'topics/topics_list' %>  
       <% else %>
-        <div class="mb-3">お題はまだありません</div>
+        <div class="mb-3 dark:text-white"><%= t('.no_topics') %></div>
       <% end %>
     </div>
   </div>  

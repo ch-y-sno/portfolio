@@ -15,7 +15,7 @@ class ArticleImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    "article_placeholder"
+    ActionController::Base.helpers.asset_path("article_placeholder.png")
   end
 
   # Process files as they are uploaded:
@@ -26,9 +26,9 @@ class ArticleImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
+  version :thumb do
+    process resize_to_fit: [ 300, 200 ]
+  end
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
