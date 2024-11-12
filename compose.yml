@@ -23,6 +23,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/portfolio
+      - /portfolio/node_modules
       - bundle:/usr/local/bundle
     tty: true
     stdin_open: true

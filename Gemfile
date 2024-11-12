@@ -88,3 +88,5 @@ gem "ransack"
 gem "kaminari"
 
 gem "dockerfile-rails", ">= 1.6", group: :development
+
+gem "aws-sdk-s3"
