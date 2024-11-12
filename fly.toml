@@ -39,4 +39,4 @@ console_command = '/rails/bin/rails console'
 
 [mounts]
   source = "uploads"
-  destination = "public/uploads"
+  destination = "/public/uploads"
